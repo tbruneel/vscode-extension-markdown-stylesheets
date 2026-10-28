@@ -1,0 +1,196 @@
+/*---------------------------------------------------------------------------------------------
+ *  VS Code Native Markdown Preview Stylesheet — Light 2026 (Standalone Export Edition)
+ *  Derived from Microsoft VS Code extensions/markdown-language-features/media/markdown.css
+ *  with Webview Light 2026 theme variables and body-level border selectors for Markdown PDF export.
+ *--------------------------------------------------------------------------------------------*/
+
+:root {
+	--vscode-font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+	--vscode-editor-font-family: "SF Mono", Monaco, Menlo, Consolas, "Ubuntu Mono", "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace;
+	--vscode-editor-background: #ffffff;
+	--vscode-editor-foreground: #1f2328;
+	--vscode-textLink-foreground: #0969da;
+	--vscode-textLink-activeForeground: #0969da;
+	--vscode-textPreformat-foreground: #1f2328;
+	--vscode-textPreformat-background: rgba(175, 184, 193, 0.2);
+	--vscode-textBlockQuote-background: rgba(127, 127, 127, 0.1);
+	--vscode-textBlockQuote-border: rgba(0, 122, 204, 0.5);
+	--vscode-textCodeBlock-background: rgba(220, 220, 220, 0.4);
+	--vscode-widget-border: rgba(0, 0, 0, 0.18);
+}
+
+html, body {
+	background-color: var(--vscode-editor-background);
+	color: var(--vscode-editor-foreground);
+	font-family: var(--markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+body {
+	padding-top: 1em;
+}
+
+/* Reset margin top for elements */
+h1, h2, h3, h4, h5, h6,
+p, ol, ul, pre {
+	margin-top: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 600;
+	margin-top: 24px;
+	margin-bottom: 16px;
+	line-height: 1.25;
+}
+
+/* Prevent `sub` and `sup` elements from affecting line height */
+sub,
+sup {
+	line-height: 0;
+}
+
+ul ul:first-child,
+ul ol:first-child,
+ol ul:first-child,
+ol ol:first-child {
+	margin-bottom: 0;
+}
+
+img, video {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: var(--vscode-textLink-foreground);
+	text-decoration: none;
+}
+
+a:hover {
+	color: var(--vscode-textLink-activeForeground);
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+p {
+	margin-bottom: 16px;
+}
+
+li p {
+	margin-bottom: 0.7em;
+}
+
+ul,
+ol {
+	margin-bottom: 0.7em;
+}
+
+hr {
+	border: 0;
+	height: 1px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+h1 {
+	font-size: 2em;
+	margin-top: 0;
+	padding-bottom: 0.3em;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+h2 {
+	font-size: 1.5em;
+	padding-bottom: 0.3em;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+h3 {
+	font-size: 1.25em;
+}
+
+h4 {
+	font-size: 1em;
+}
+
+h5 {
+	font-size: 0.875em;
+}
+
+h6 {
+	font-size: 0.85em;
+}
+
+table {
+	border-collapse: collapse;
+	margin-bottom: 0.7em;
+}
+
+th {
+	text-align: left;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.69);
+}
+
+th,
+td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid rgba(0, 0, 0, 0.18);
+}
+
+blockquote {
+	margin: 0 0 16px 0;
+	padding: 0 16px 0 10px;
+	background: var(--vscode-textBlockQuote-background);
+	border-left: 5px solid var(--vscode-textBlockQuote-border);
+	border-radius: 2px;
+}
+
+code {
+	font-family: var(--vscode-editor-font-family);
+	font-size: 1em;
+	line-height: 1.357em;
+	color: var(--vscode-textPreformat-foreground);
+	background-color: var(--vscode-textPreformat-background);
+	padding: 1px 3px;
+	border-radius: 4px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre {
+	background-color: var(--vscode-textCodeBlock-background);
+	border: 1px solid var(--vscode-widget-border);
+}
+
+pre code {
+	display: inline-block;
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+	background: none;
+	padding: 0;
+}
+
+.page {
+	page-break-after: always;
+}
