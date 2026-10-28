@@ -1,22 +1,23 @@
 /*---------------------------------------------------------------------------------------------
  *  VS Code Native Markdown Preview Stylesheet — Light 2026 (Standalone Export Edition)
- *  Derived from Microsoft VS Code extensions/markdown-language-features/media/markdown.css
- *  with Webview Light 2026 theme variables and body-level border selectors for Markdown PDF export.
+ *  Derived from:
+ *    - extensions/markdown-language-features/media/markdown.css
+ *    - extensions/theme-defaults/themes/2026-light.json
  *--------------------------------------------------------------------------------------------*/
 
 :root {
 	--vscode-font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
 	--vscode-editor-font-family: "SF Mono", Monaco, Menlo, Consolas, "Ubuntu Mono", "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace;
-	--vscode-editor-background: #ffffff;
-	--vscode-editor-foreground: #1f2328;
-	--vscode-textLink-foreground: #0969da;
-	--vscode-textLink-activeForeground: #0969da;
-	--vscode-textPreformat-foreground: #1f2328;
-	--vscode-textPreformat-background: rgba(175, 184, 193, 0.2);
-	--vscode-textBlockQuote-background: rgba(127, 127, 127, 0.1);
-	--vscode-textBlockQuote-border: rgba(0, 122, 204, 0.5);
-	--vscode-textCodeBlock-background: rgba(220, 220, 220, 0.4);
-	--vscode-widget-border: rgba(0, 0, 0, 0.18);
+	--vscode-editor-background: #FFFFFF;
+	--vscode-editor-foreground: #202020;
+	--vscode-textLink-foreground: #0069CC;
+	--vscode-textLink-activeForeground: #0069CC;
+	--vscode-textPreformat-foreground: #606060;
+	--vscode-textPreformat-background: #ECECEC;
+	--vscode-textBlockQuote-background: #EAEAEA;
+	--vscode-textBlockQuote-border: #F0F1F2;
+	--vscode-textCodeBlock-background: #EAEAEA;
+	--vscode-widget-border: #E2E2E5;
 }
 
 html, body {
