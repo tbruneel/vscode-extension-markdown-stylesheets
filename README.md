@@ -45,7 +45,7 @@ Add the following settings to your user `settings.json` (`%APPDATA%\Code\User\se
 {
     "markdown-pdf.includeDefaultStyles": false,
     "markdown-pdf.styles": [
-        "D:\\Development\\markdown-stylesheets\\markdown-vscode-light2026.css"
+        "D:\\Development\\vscode-markdown-stylesheets\\markdown-vscode-light2026.css"
     ]
 }
 ```
