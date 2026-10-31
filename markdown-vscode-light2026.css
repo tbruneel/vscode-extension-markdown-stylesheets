@@ -32,7 +32,7 @@ body {
 	font-size: var(--markdown-font-size, 14px);
 	line-height: var(--markdown-line-height, 22px);
 	word-wrap: break-word;
-	max-width: 1012px;
+	width: 1012px;
 	margin: 0 auto;
 	padding: 32px;
 	box-sizing: border-box;
@@ -40,7 +40,7 @@ body {
 
 @media print {
 	body {
-		max-width: none;
+		width: auto;
 		padding: 1em 26px 0;
 	}
 }
