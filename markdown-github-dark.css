@@ -1,4 +1,4 @@
-﻿/*---------------------------------------------------------------------------------------------
+/*---------------------------------------------------------------------------------------------
  *  GitHub Official Primer Markdown Stylesheet — GitHub Dark Default (Standalone Export Edition)
  *  Derived from:
  *    - sindresorhus/github-markdown-css (@primer/css)
@@ -1133,17 +1133,17 @@ body .highlight pre:has(+.zeroclipboard-container) {
   min-height: 52px;
 }
 
-/* Centered 1060px screen layout & print override */
+/* GitHub-compatible 1012px container & print override */
 body {
-  width: 1060px;
+  max-width: 1012px;
   margin: 0 auto;
-  padding: 1.5em 32px 3em;
+  padding: 32px;
   box-sizing: border-box;
 }
 
 @media print {
   body {
-    width: auto;
+    max-width: none;
     padding: 1em 26px 0;
   }
 }

@@ -32,15 +32,15 @@ body {
 	font-size: var(--markdown-font-size, 14px);
 	line-height: var(--markdown-line-height, 22px);
 	word-wrap: break-word;
-	width: 1060px;
+	max-width: 1012px;
 	margin: 0 auto;
-	padding: 1.5em 32px 3em;
+	padding: 32px;
 	box-sizing: border-box;
 }
 
 @media print {
 	body {
-		width: auto;
+		max-width: none;
 		padding: 1em 26px 0;
 	}
 }
@@ -145,6 +145,10 @@ h6 {
 table {
 	border-collapse: collapse;
 	margin-bottom: 0.7em;
+	display: block;
+	width: max-content;
+	max-width: 100%;
+	overflow: auto;
 }
 
 th {
