@@ -32,6 +32,8 @@ These stylesheets resolve all three issues by:
 - Embedding VS Code's current `markdown-language-features` layout and typography rules (`font-weight: 600` headings, `<h1>` & `<h2>` underlines, spacing, and table cell padding).
 - Defining the exact **Light 2026** or **Dark 2026** `--vscode-*` CSS custom properties directly in `:root`.
 - Applying the `.vscode-light` / `.vscode-dark` border colors directly to `th`, `td`, `h1`, `h2`, and `hr` so standalone HTML and PDF exports render identically to the live VS Code preview without requiring special `<body>` classes.
+- **Centered Fixed-Width Screen Layout (`width: 1060px`):** Centers `body` at a constant `1060px` width on screen (`width: auto` in `@media print`) so standalone `.html` files look clean on ultrawide monitors and scroll horizontally as a single intact page when the viewport is narrower than `1060px`.
+- **GitHub-Style Markdown Alerts (`.markdown-alert-*`):** Includes GitHub Primer Light & Dark alert styles (`> [!NOTE]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!WARNING]`, `> [!CAUTION]`) with compact `6px` title spacing (`margin-bottom: 6px`), matching [`tbruneel/vscode-markdown-alert`](https://github.com/tbruneel/vscode-markdown-alert) and [`tbruneel/vscode-markdown-pdf`](https://github.com/tbruneel/vscode-markdown-pdf).
 
 ---
 
