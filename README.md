@@ -6,21 +6,30 @@ Custom CSS stylesheets for exporting Markdown documents (`.md`) to standalone `.
 
 ## Included Stylesheets
 
-| Stylesheet | Target VS Code Theme | Background | Text |
+| Stylesheet | Target Theme | Background | Text |
 | :--- | :--- | :---: | :---: |
-| `markdown-vscode-light2026.css` | **Light 2026** (`2026-light.json`) | `#FFFFFF` | `#202020` |
-| `markdown-vscode-dark2026.css` | **Dark 2026** (`2026-dark.json`) | `#121314` | `#BBBEBF` |
+| `markdown-vscode-light2026.css` | **VS Code Light 2026** (`2026-light.json`) | `#FFFFFF` | `#202020` |
+| `markdown-vscode-dark2026.css` | **VS Code Dark 2026** (`2026-dark.json`) | `#121314` | `#BBBEBF` |
+| `markdown-github-light.css` | **GitHub Light Default** (`@primer/css`) | `#FFFFFF` | `#1F2328` |
+| `markdown-github-dark.css` | **GitHub Dark Default** (`@primer/css`) | `#0D1117` | `#F0F6FC` |
 
 ---
 
 ## Origin & Source
 
+### 1. VS Code 2026 Stylesheets (`markdown-vscode-*.css`)
 Derived directly from Microsoft Visual Studio Code's built-in `markdown-language-features` and `theme-defaults` extensions:
 - **Layout & Typography (`markdown.css`):**
   - Local path: `C:\Program Files\Microsoft Visual Studio Code\<version>\resources\app\extensions\markdown-language-features\media\markdown.css`
   - Upstream: [microsoft/vscode — `extensions/markdown-language-features/media/markdown.css`](https://github.com/microsoft/vscode/blob/main/extensions/markdown-language-features/media/markdown.css)
 - **Theme Color Tokens (`2026-light.json` & `2026-dark.json`):**
   - Local path: `C:\Program Files\Microsoft Visual Studio Code\<version>\resources\app\extensions\theme-defaults\themes\2026-light.json` (and `2026-dark.json`)
+
+### 2. GitHub Primer Stylesheets (`markdown-github-*.css`)
+Derived from [`sindresorhus/github-markdown-css`](https://github.com/sindresorhus/github-markdown-css) (generated from GitHub's official `@primer/css` Markdown styles) and adapted for standalone `Markdown PDF` exports:
+- Replaces the `.markdown-body` container selector with `body` so all GitHub Primer rules apply directly to `yzane.markdown-pdf`'s bare `<body>` HTML template.
+- Sets full-viewport `html` background and foreground colors (`#ffffff` / `#0d1117`) outside the centered `1060px` `body` column.
+- Applies the same `6px` bottom margin under `.markdown-alert-title` and `0.5rem` icon spacing for GitHub-style alerts.
 
 ### Why This Adaptation Is Needed for `Markdown PDF`
 By default, `yzane.markdown-pdf` produces exports that look noticeably different from VS Code's built-in preview for three reasons:
