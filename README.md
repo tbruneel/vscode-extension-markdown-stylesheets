@@ -41,9 +41,9 @@ These stylesheets resolve all three issues and unify page/table geometry across 
 - Embedding VS Code's current `markdown-language-features` layout and typography rules (`font-weight: 600` headings, `<h1>` & `<h2>` underlines, spacing, and table cell padding).
 - Defining the exact **Light 2026** or **Dark 2026** `--vscode-*` CSS custom properties directly in `:root`.
 - Applying the `.vscode-light` / `.vscode-dark` border colors directly to `th`, `td`, `h1`, `h2`, and `hr` so standalone HTML and PDF exports render identically to the live VS Code preview without requiring special `<body>` classes.
-- **GitHub-Compatible Page Width & Table Overflow (`max-width: 1012px`):**
-  - Sets `body { max-width: 1012px; margin: 0 auto; padding: 32px; box-sizing: border-box; }` (`948px` inner content width, matching GitHub.com's `README.md` container and `@media print { max-width: none; }`).
-  - Sets `table { display: block; width: max-content; max-width: 100%; overflow: auto; }` so tables shrink cleanly with the viewport and get their own self-contained horizontal scrollbar if a table is wider than `948px`, rather than overflowing `body`.
+- **GitHub-Compatible Page Width & Table Overflow (`width: 1012px`):**
+  - Sets `body { width: 1012px; margin: 0 auto; padding: 32px; box-sizing: border-box; }` (`948px` inner content width, matching GitHub.com's `README.md` container and `@media print { width: auto; }`).
+  - Sets `table { display: block; width: max-content; max-width: 100%; overflow: auto; }` so the page stays fixed at 1012px (scrolling horizontally when the viewport is narrower) while tables wider than the 948px inner content get their own self-contained horizontal scrollbar if a table is wider than `948px`, rather than overflowing `body`.
 - **GitHub-Style Markdown Alerts (`.markdown-alert-*`):** Includes GitHub Primer Light & Dark alert styles (`> [!NOTE]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!WARNING]`, `> [!CAUTION]`) with compact `6px` title spacing (`margin-bottom: 6px`), matching [`tbruneel/vscode-markdown-alert`](https://github.com/tbruneel/vscode-markdown-alert) and [`tbruneel/vscode-markdown-pdf`](https://github.com/tbruneel/vscode-markdown-pdf).
 
 ---
