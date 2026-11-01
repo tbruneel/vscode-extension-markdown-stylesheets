@@ -20,11 +20,11 @@ Installing the extension immediately applies the fixed-width centered layout whi
 
 | Theme | Bundled Stylesheet | Background | Body Text | Description |
 | :--- | :--- | :---: | :---: | :--- |
-| `"auto"` *(default)* | `markdown-preview-layout.css` | *(VS Code)* | *(VS Code)* | Uses VS Code's default colors while applying the fixed-width centered layout. |
-| `"vscode-light2026"` | `markdown-vscode-light2026.css` | `#FFFFFF` | `#202020` | VS Code Light 2026 stylesheet with GitHub Alert colors. |
-| `"vscode-dark2026"` | `markdown-vscode-dark2026.css` | `#121314` | `#BBBEBF` | VS Code Dark 2026 stylesheet with GitHub Alert colors. |
-| `"github-light"` | `markdown-github-light.css` | `#FFFFFF` | `#1F2328` | GitHub Light stylesheet with GitHub syntax highlighting and GitHub Alert colors. |
-| `"github-dark"` | `markdown-github-dark.css` | `#0D1117` | `#F0F6FC` | GitHub Dark stylesheet with GitHub syntax highlighting and GitHub Alert colors. |
+| `"auto"` *(default)* | [`markdown-preview-layout.css`](styles/markdown-preview-layout.css) | *(VS Code)* | *(VS Code)* | Uses VS Code's default colors while applying the fixed-width centered layout. |
+| `"vscode-light2026"` | [`markdown-vscode-light2026.css`](styles/markdown-vscode-light2026.css) | `#FFFFFF` | `#202020` | VS Code Light 2026 stylesheet with GitHub Alert colors. |
+| `"vscode-dark2026"` | [`markdown-vscode-dark2026.css`](styles/markdown-vscode-dark2026.css) | `#121314` | `#BBBEBF` | VS Code Dark 2026 stylesheet with GitHub Alert colors. |
+| `"github-light"` | [`markdown-github-light.css`](styles/markdown-github-light.css) | `#FFFFFF` | `#1F2328` | GitHub Light stylesheet with GitHub syntax highlighting and GitHub Alert colors. |
+| `"github-dark"` | [`markdown-github-dark.css`](styles/markdown-github-dark.css) | `#0D1117` | `#F0F6FC` | GitHub Dark stylesheet with GitHub syntax highlighting and GitHub Alert colors. |
 
 - **Default `"auto"` Mode:** Leaves `"markdown.styles"` untouched so the preview follows whatever default colors VS Code is set to, while `markdown-preview-layout.css` applies the fixed-width layout, table scrollbars, and blockquote styling.
 - **Explicit Theme Overrides:** Selecting a specific theme automatically resolves the bundled `.css` path on disk and updates VS Code's `"markdown.styles"` setting (while preserving any unrelated custom stylesheets), applying that theme to both VS Code's Markdown Preview and new `.md.html` exports.

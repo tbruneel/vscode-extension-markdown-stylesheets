@@ -34,7 +34,7 @@ async function syncMarkdownStyles(extensionPath) {
     return;
   }
 
-  const targetCssPath = path.join(extensionPath, THEME_FILES[theme]);
+  const targetCssPath = path.join(extensionPath, 'styles', THEME_FILES[theme]);
   const nextStyles = [...otherStyles, targetCssPath];
   const unchanged =
     Array.isArray(currentStyles) &&
