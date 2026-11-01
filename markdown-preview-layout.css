@@ -1,6 +1,10 @@
-/* GitHub-compatible 1012px fixed-width container & self-contained table overflow for VS Code Markdown Preview */
+/* GitHub-compatible 902px fixed-width container & self-contained table overflow for VS Code Markdown Preview */
+html {
+  padding: 0;
+}
+
 body {
-  width: 1012px;
+  width: 902px;
   margin: 0 auto;
   padding: 32px;
   box-sizing: border-box;
@@ -19,4 +23,3 @@ table {
   max-width: 100%;
   overflow: auto;
 }
-

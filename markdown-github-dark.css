@@ -2,12 +2,13 @@
  *  GitHub Official Primer Markdown Stylesheet — GitHub Dark Default (Standalone Export Edition)
  *  Derived from:
  *    - sindresorhus/github-markdown-css (@primer/css)
- *  Adapted for yzane.markdown-pdf bare <body> template, 1060px centered layout, and GitHub Alerts.
+ *  Adapted for yzane.markdown-pdf bare <body> template, 902px centered layout, and GitHub Alerts.
  *--------------------------------------------------------------------------------------------*/
 
 html {
   background-color: #0d1117;
   color: #f0f6fc;
+  padding: 0;
 }
 /*dark */
 body {
@@ -72,7 +73,8 @@ body [hidden] {
 body a {
   background-color: rgba(0,0,0,0);
   color: #4493f8;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: .2rem;
 }
 
 body abbr[title] {
@@ -144,9 +146,7 @@ body figure {
 body hr {
   box-sizing: content-box;
   overflow: hidden;
-  background: rgba(0,0,0,0);
-  border-bottom: 1px solid #3d444db3;
-  height: .25em;
+  height: 1px;
   padding: 0;
   margin: 1.5rem 0;
   background-color: #3d444d;
@@ -402,11 +402,13 @@ body::after {
   content: "";
 }
 
-body>*:first-child {
+body>*:first-child,
+body>.markdown-body>*:first-child {
   margin-top: 0 !important;
 }
 
-body>*:last-child {
+body>*:last-child,
+body>.markdown-body>*:last-child {
   margin-bottom: 0 !important;
 }
 
@@ -1133,9 +1135,9 @@ body .highlight pre:has(+.zeroclipboard-container) {
   min-height: 52px;
 }
 
-/* GitHub-compatible 1012px container & print override */
+/* GitHub-compatible 902px container & print override */
 body {
-  width: 1012px;
+  width: 902px;
   margin: 0 auto;
   padding: 32px;
   box-sizing: border-box;
@@ -1159,6 +1161,212 @@ body .markdown-alert .markdown-alert-title {
 
 body .markdown-alert .markdown-alert-title .octicon {
   margin-right: 0.5rem;
+}
+
+
+/* Neutralize VS Code built-in media/markdown.css & media/highlight.css specificity conflicts */
+body.vscode-light h1,
+body.vscode-dark h1,
+body.vscode-light h2,
+body.vscode-dark h2 {
+  border-bottom: 1px solid #3d444db3;
+}
+
+body.vscode-light hr,
+body.vscode-dark hr {
+  height: 1px;
+  background-color: #3d444d;
+  border: 0;
+}
+
+body.vscode-light table th,
+body.vscode-dark table th,
+body.vscode-light table td,
+body.vscode-dark table td,
+body table > tbody > tr + tr > td {
+  border: 1px solid #3d444d;
+}
+
+body li p {
+  margin-bottom: 1rem;
+}
+
+body code,
+body tt {
+  line-height: inherit;
+}
+
+body pre,
+body pre:not(.hljs),
+body pre.hljs code > div {
+  padding: 1rem;
+  border-radius: 6px;
+  border: 0;
+  background-color: #151b23;
+  color: #f0f6fc;
+}
+
+body pre code {
+  color: inherit;
+  background: transparent;
+  padding: 0;
+}
+
+
+/* GitHub Dark Primer syntax highlighting for highlight.js (.hljs-*) */
+body .hljs,
+body.vscode-light .hljs,
+body.vscode-dark .hljs {
+  color: #f0f6fc;
+}
+body .hljs-doctag,
+body .hljs-keyword,
+body .hljs-meta .hljs-keyword,
+body .hljs-template-tag,
+body .hljs-template-variable,
+body .hljs-type,
+body .hljs-variable.language_,
+body.vscode-light .hljs-doctag,
+body.vscode-light .hljs-keyword,
+body.vscode-light .hljs-meta .hljs-keyword,
+body.vscode-light .hljs-template-tag,
+body.vscode-light .hljs-template-variable,
+body.vscode-light .hljs-type,
+body.vscode-light .hljs-variable.language_,
+body.vscode-dark .hljs-doctag,
+body.vscode-dark .hljs-keyword,
+body.vscode-dark .hljs-meta .hljs-keyword,
+body.vscode-dark .hljs-template-tag,
+body.vscode-dark .hljs-template-variable,
+body.vscode-dark .hljs-type,
+body.vscode-dark .hljs-variable.language_ {
+  color: #ff7b72;
+}
+body .hljs-title,
+body .hljs-title.class_,
+body .hljs-title.class_.inherited__,
+body .hljs-title.function_,
+body .hljs-function,
+body.vscode-light .hljs-title,
+body.vscode-light .hljs-title.class_,
+body.vscode-light .hljs-title.class_.inherited__,
+body.vscode-light .hljs-title.function_,
+body.vscode-light .hljs-function,
+body.vscode-dark .hljs-title,
+body.vscode-dark .hljs-title.class_,
+body.vscode-dark .hljs-title.class_.inherited__,
+body.vscode-dark .hljs-title.function_,
+body.vscode-dark .hljs-function {
+  color: #d2a8ff;
+}
+body .hljs-attr,
+body .hljs-attribute,
+body .hljs-literal,
+body .hljs-meta,
+body .hljs-number,
+body .hljs-operator,
+body .hljs-variable,
+body .hljs-selector-attr,
+body .hljs-selector-class,
+body .hljs-selector-id,
+body.vscode-light .hljs-attr,
+body.vscode-light .hljs-attribute,
+body.vscode-light .hljs-literal,
+body.vscode-light .hljs-meta,
+body.vscode-light .hljs-number,
+body.vscode-light .hljs-operator,
+body.vscode-light .hljs-variable,
+body.vscode-light .hljs-selector-attr,
+body.vscode-light .hljs-selector-class,
+body.vscode-light .hljs-selector-id,
+body.vscode-dark .hljs-attr,
+body.vscode-dark .hljs-attribute,
+body.vscode-dark .hljs-literal,
+body.vscode-dark .hljs-meta,
+body.vscode-dark .hljs-number,
+body.vscode-dark .hljs-operator,
+body.vscode-dark .hljs-variable,
+body.vscode-dark .hljs-selector-attr,
+body.vscode-dark .hljs-selector-class,
+body.vscode-dark .hljs-selector-id {
+  color: #79c0ff;
+}
+body .hljs-regexp,
+body .hljs-string,
+body .hljs-meta .hljs-string,
+body.vscode-light .hljs-regexp,
+body.vscode-light .hljs-string,
+body.vscode-light .hljs-meta .hljs-string,
+body.vscode-dark .hljs-regexp,
+body.vscode-dark .hljs-string,
+body.vscode-dark .hljs-meta .hljs-string {
+  color: #a5d6ff;
+}
+body .hljs-built_in,
+body .hljs-symbol,
+body .hljs-params,
+body .hljs-class,
+body.vscode-light .hljs-built_in,
+body.vscode-light .hljs-symbol,
+body.vscode-light .hljs-params,
+body.vscode-light .hljs-class,
+body.vscode-dark .hljs-built_in,
+body.vscode-dark .hljs-symbol,
+body.vscode-dark .hljs-params,
+body.vscode-dark .hljs-class {
+  color: #ffa657;
+}
+body .hljs-comment,
+body .hljs-code,
+body .hljs-formula,
+body.vscode-light .hljs-comment,
+body.vscode-light .hljs-code,
+body.vscode-light .hljs-formula,
+body.vscode-dark .hljs-comment,
+body.vscode-dark .hljs-code,
+body.vscode-dark .hljs-formula {
+  color: #9198a1;
+  font-style: normal;
+}
+body .hljs-name,
+body .hljs-quote,
+body .hljs-selector-tag,
+body .hljs-selector-pseudo,
+body .hljs-tag,
+body.vscode-light .hljs-name,
+body.vscode-light .hljs-quote,
+body.vscode-light .hljs-selector-tag,
+body.vscode-light .hljs-selector-pseudo,
+body.vscode-light .hljs-tag,
+body.vscode-dark .hljs-name,
+body.vscode-dark .hljs-quote,
+body.vscode-dark .hljs-selector-tag,
+body.vscode-dark .hljs-selector-pseudo,
+body.vscode-dark .hljs-tag {
+  color: #7ee787;
+}
+body .hljs-section,
+body.vscode-light .hljs-section,
+body.vscode-dark .hljs-section {
+  color: #1f6feb;
+  font-weight: bold;
+}
+body .hljs-bullet,
+body.vscode-light .hljs-bullet,
+body.vscode-dark .hljs-bullet {
+  color: #f2cc60;
+}
+body .hljs-addition,
+body.vscode-light .hljs-addition,
+body.vscode-dark .hljs-addition {
+  color: #aff5b4;
+  background-color: #033a16;
+}
+body .hljs-deletion,
+body.vscode-light .hljs-deletion,
+body.vscode-dark .hljs-deletion {
+  color: #ffdcd7;
+  background-color: #67060c;
 }
 
 .page {

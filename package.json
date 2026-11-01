@@ -1,7 +1,7 @@
 {
   "name": "markdown-stylesheets",
   "displayName": "Markdown Stylesheets",
-  "description": "GitHub-compatible 1012px Markdown preview layout and selectable VS Code 2026 & GitHub Primer CSS themes for 'markdown.styles' and 'vscode-markdown-html'.",
+  "description": "GitHub-compatible 902px Markdown preview layout and selectable VS Code 2026 & GitHub Primer CSS themes for 'markdown.styles' and 'vscode-markdown-html'.",
   "version": "1.0.0",
   "publisher": "tbruneel",
   "engines": {
