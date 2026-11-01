@@ -1479,6 +1479,7 @@ body.vscode-dark .hljs-deletion {
 
 /* GitHub PrettyLights (.pl-ii) marks // comments in strict ```json blocks as invalid tokens */
 body code.language-json .hljs-comment,
+body pre.hljs:has(> code > div > .hljs-punctuation:first-child) code:not(.language-jsonc):not(.language-json5) .hljs-comment,
 body.vscode-light code.language-json .hljs-comment,
 body.vscode-dark code.language-json .hljs-comment {
   color: #f85149;
