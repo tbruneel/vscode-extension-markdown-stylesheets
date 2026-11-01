@@ -8,6 +8,8 @@
 html {
   background-color: #0d1117;
   color: #f0f6fc;
+  color-scheme: dark;
+  scrollbar-color: #6e7681 #151b23;
   padding: 0;
 }
 /*dark */
@@ -1288,7 +1290,7 @@ body .code-block-copy-button.copied::before {
   transform: translateY(-50%);
   padding: 4px 8px;
   border-radius: 6px;
-  background-color: #25292e;
+  background-color: #3d444d;
   color: #f0f6fc;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
   font-size: 12px;
@@ -1324,13 +1326,17 @@ body .code-block-copy-button.copied svg path {
 
 /* GitHub Dark Primer syntax highlighting for highlight.js (.hljs-*) */
 body .hljs,
+body .hljs-subst,
 body.vscode-light .hljs,
-body.vscode-dark .hljs {
+body.vscode-light .hljs-subst,
+body.vscode-dark .hljs,
+body.vscode-dark .hljs-subst {
   color: #f0f6fc;
 }
 body .hljs-doctag,
 body .hljs-keyword,
 body .hljs-meta .hljs-keyword,
+body .hljs-meta-keyword,
 body .hljs-template-tag,
 body .hljs-template-variable,
 body .hljs-type,
@@ -1338,6 +1344,7 @@ body .hljs-variable.language_,
 body.vscode-light .hljs-doctag,
 body.vscode-light .hljs-keyword,
 body.vscode-light .hljs-meta .hljs-keyword,
+body.vscode-light .hljs-meta-keyword,
 body.vscode-light .hljs-template-tag,
 body.vscode-light .hljs-template-variable,
 body.vscode-light .hljs-type,
@@ -1345,6 +1352,7 @@ body.vscode-light .hljs-variable.language_,
 body.vscode-dark .hljs-doctag,
 body.vscode-dark .hljs-keyword,
 body.vscode-dark .hljs-meta .hljs-keyword,
+body.vscode-dark .hljs-meta-keyword,
 body.vscode-dark .hljs-template-tag,
 body.vscode-dark .hljs-template-variable,
 body.vscode-dark .hljs-type,
@@ -1403,23 +1411,29 @@ body.vscode-dark .hljs-selector-id {
 body .hljs-regexp,
 body .hljs-string,
 body .hljs-meta .hljs-string,
+body .hljs-meta-string,
 body.vscode-light .hljs-regexp,
 body.vscode-light .hljs-string,
 body.vscode-light .hljs-meta .hljs-string,
+body.vscode-light .hljs-meta-string,
 body.vscode-dark .hljs-regexp,
 body.vscode-dark .hljs-string,
-body.vscode-dark .hljs-meta .hljs-string {
+body.vscode-dark .hljs-meta .hljs-string,
+body.vscode-dark .hljs-meta-string {
   color: #a5d6ff;
 }
 body .hljs-built_in,
+body .hljs-builtin-name,
 body .hljs-symbol,
 body .hljs-params,
 body .hljs-class,
 body.vscode-light .hljs-built_in,
+body.vscode-light .hljs-builtin-name,
 body.vscode-light .hljs-symbol,
 body.vscode-light .hljs-params,
 body.vscode-light .hljs-class,
 body.vscode-dark .hljs-built_in,
+body.vscode-dark .hljs-builtin-name,
 body.vscode-dark .hljs-symbol,
 body.vscode-dark .hljs-params,
 body.vscode-dark .hljs-class {
@@ -1451,7 +1465,25 @@ body.vscode-dark .hljs-name,
 body.vscode-dark .hljs-quote,
 body.vscode-dark .hljs-selector-tag,
 body.vscode-dark .hljs-selector-pseudo,
-body.vscode-dark .hljs-tag {
+body.vscode-dark .hljs-tag,
+body code.language-json .hljs-attr,
+body code.language-jsonc .hljs-attr,
+body code.language-json5 .hljs-attr,
+body code.language-yaml .hljs-attr,
+body code.language-yml .hljs-attr,
+body pre.hljs:has(> code > div > .hljs-punctuation:first-child) .hljs-attr,
+body.vscode-light code.language-json .hljs-attr,
+body.vscode-dark code.language-json .hljs-attr,
+body.vscode-light code.language-jsonc .hljs-attr,
+body.vscode-dark code.language-jsonc .hljs-attr,
+body.vscode-light code.language-json5 .hljs-attr,
+body.vscode-dark code.language-json5 .hljs-attr,
+body.vscode-light code.language-yaml .hljs-attr,
+body.vscode-dark code.language-yaml .hljs-attr,
+body.vscode-light code.language-yml .hljs-attr,
+body.vscode-dark code.language-yml .hljs-attr,
+body.vscode-light pre.hljs:has(> code > div > .hljs-punctuation:first-child) .hljs-attr,
+body.vscode-dark pre.hljs:has(> code > div > .hljs-punctuation:first-child) .hljs-attr {
   color: #7ee787;
 }
 body .hljs-section,
