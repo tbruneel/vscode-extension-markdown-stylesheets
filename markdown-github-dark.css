@@ -1208,6 +1208,7 @@ body blockquote {
 }
 
 body pre,
+body pre.hljs,
 body pre:not(.hljs) {
   position: relative;
   padding: 0 48px 0 0;

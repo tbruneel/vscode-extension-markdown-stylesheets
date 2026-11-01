@@ -25,6 +25,7 @@ table {
 }
 
 pre,
+pre.hljs,
 pre:not(.hljs) {
   position: relative;
   padding: 0 48px 0 0;
