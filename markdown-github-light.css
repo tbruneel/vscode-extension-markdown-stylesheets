@@ -240,7 +240,7 @@ body a:focus,
 body [role=button]:focus,
 body input[type=radio]:focus,
 body input[type=checkbox]:focus {
-  outline: 2px solid var(--borderColor-accent-emphasis);
+  outline: 2px solid #0969da;
   outline-offset: -2px;
   box-shadow: none;
 }
@@ -256,7 +256,7 @@ body a:focus-visible,
 body [role=button]:focus-visible,
 body input[type=radio]:focus-visible,
 body input[type=checkbox]:focus-visible {
-  outline: 2px solid var(--borderColor-accent-emphasis);
+  outline: 2px solid #0969da;
   outline-offset: -2px;
   box-shadow: none;
 }
@@ -278,10 +278,10 @@ body kbd {
   color: #1f2328;
   vertical-align: middle;
   background-color: #f6f8fa;
-  border: solid 1px var(--borderColor-muted);
-  border-bottom-color: var(--borderColor-muted);
+  border: solid 1px #d1d9e0b3;
+  border-bottom-color: #d1d9e0b3;
   border-radius: 6px;
-  box-shadow: inset 0 -1px 0 var(--borderColor-muted);
+  box-shadow: inset 0 -1px 0 #d1d9e0b3;
 }
 
 body h1,
@@ -903,8 +903,8 @@ body .pl-bu {
 }
 
 body .pl-ii {
-  color: var(--fgColor-danger);
-  background-color: var(--bgColor-danger-muted);
+  color: #d1242f;
+  background-color: #ffebe9;
 }
 
 body .pl-c2 {
@@ -1015,7 +1015,7 @@ body a:has(>p,>div,>pre,>blockquote):not(:has(.snippet-clipboard-content,>pre)) 
 }
 
 body a:has(>p,>div,>pre,>blockquote):has(.snippet-clipboard-content,>pre):focus-visible {
-  outline: 2px solid var(--borderColor-accent-emphasis);
+  outline: 2px solid #0969da;
   outline-offset: 2px;
 }
 
@@ -1193,7 +1193,18 @@ body li p {
 
 body code,
 body tt {
+  color: inherit;
   line-height: inherit;
+}
+
+body a:hover,
+body a code {
+  color: #0969da;
+}
+
+body blockquote {
+  background: transparent;
+  border-radius: 0;
 }
 
 body pre,
