@@ -43,7 +43,7 @@ Because `package.json` in this repository contributes `"markdown.previewStyles":
 
 You can switch themes at any time either via the Command Palette (**`Markdown Stylesheets: Select Theme`**) or in `settings.json`:
 
-```json
+```jsonc
 {
     "markdown-stylesheets.theme": "auto" // Options: "auto", "vscode-light2026", "vscode-dark2026", "github-light", "github-dark"
 }

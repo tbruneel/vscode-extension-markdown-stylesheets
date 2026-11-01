@@ -23,3 +23,28 @@ table {
   max-width: 100%;
   overflow: auto;
 }
+
+pre,
+pre:not(.hljs) {
+  position: relative;
+  padding: 0 48px 0 0;
+  overflow: hidden;
+}
+
+pre:not(.hljs) > code,
+pre.hljs code > div {
+  display: block;
+  padding: 16px;
+  overflow: auto;
+}
+
+.code-block-copy-button {
+  top: 8px;
+  right: 8px;
+  width: 32px;
+  height: 32px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background-color: transparent;
+  opacity: 1;
+}
