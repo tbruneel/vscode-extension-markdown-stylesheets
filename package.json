@@ -1,0 +1,22 @@
+{
+  "name": "markdown-stylesheets",
+  "displayName": "Markdown Stylesheets",
+  "description": "GitHub-compatible 1012px Markdown preview layout and whitelisted VS Code 2026 & GitHub Primer CSS themes for 'markdown.styles' and 'vscode-markdown-html'.",
+  "version": "1.0.0",
+  "publisher": "tbruneel",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tbruneel/vscode-markdown-stylesheets.git"
+  },
+  "contributes": {
+    "markdown.previewStyles": [
+      "./markdown-preview-layout.css"
+    ]
+  }
+}

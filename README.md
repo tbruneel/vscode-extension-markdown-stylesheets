@@ -1,13 +1,16 @@
-# Markdown Stylesheets
+# VS Code Markdown Stylesheets (`tbruneel/vscode-markdown-stylesheets`)
 
-Custom CSS stylesheets for exporting Markdown documents (`.md`) to standalone `.md.html` files using [`tbruneel/vscode-markdown-html`](https://github.com/tbruneel/vscode-markdown-html) while preserving full layout compatibility with **GitHub.com** and **VS Code's built-in Markdown Preview**.
+A declarative, CSS-only VS Code extension that:
+1. Applies a **GitHub-compatible `1012px` fixed-width layout and self-contained table scrollbars** (`markdown-preview-layout.css`) to VS Code's built-in Markdown Preview automatically.
+2. Provides **whitelisted, standalone CSS themes** (`VS Code Light/Dark 2026` and `GitHub Light/Dark`) inside `~/.vscode/extensions/tbruneel.markdown-stylesheets-1.0.0/` so they can be selected directly via VS Code's native **`"markdown.styles"`** setting for **both** the built-in Markdown Preview and [`.md.html` exports (`tbruneel/vscode-markdown-html`)](https://github.com/tbruneel/vscode-markdown-html).
 
 ---
 
 ## Included Stylesheets
 
-| Stylesheet | Target Theme | Background | Text |
+| Stylesheet | Purpose / Target Theme | Background | Text |
 | :--- | :--- | :---: | :---: |
+| `markdown-preview-layout.css` | **Built-in Preview Layout** *(loaded automatically via `"markdown.previewStyles"`)* | *(Inherits active VS Code theme)* | *(Inherits active VS Code theme)* |
 | `markdown-vscode-light2026.css` | **VS Code Light 2026** (`2026-light.json`) | `#FFFFFF` | `#202020` |
 | `markdown-vscode-dark2026.css` | **VS Code Dark 2026** (`2026-dark.json`) | `#121314` | `#BBBEBF` |
 | `markdown-github-light.css` | **GitHub Light Default** (`@primer/css`) | `#FFFFFF` | `#1F2328` |
@@ -15,49 +18,37 @@ Custom CSS stylesheets for exporting Markdown documents (`.md`) to standalone `.
 
 ---
 
-## Origin & Source
+## How It Works
 
-### 1. VS Code 2026 Stylesheets (`markdown-vscode-*.css`)
-Derived directly from Microsoft Visual Studio Code's built-in `markdown-language-features` and `theme-defaults` extensions:
-- **Layout & Typography (`markdown.css`):**
-  - Local path: `C:\Program Files\Microsoft Visual Studio Code\<version>\resources\app\extensions\markdown-language-features\media\markdown.css`
-  - Upstream: [microsoft/vscode — `extensions/markdown-language-features/media/markdown.css`](https://github.com/microsoft/vscode/blob/main/extensions/markdown-language-features/media/markdown.css)
-- **Theme Color Tokens (`2026-light.json` & `2026-dark.json`):**
-  - Local path: `C:\Program Files\Microsoft Visual Studio Code\<version>\resources\app\extensions\theme-defaults\themes\2026-light.json` (and `2026-dark.json`)
+### 1. Why This Repo Is Packaged as a Declarative CSS Extension
+By default, VS Code's built-in Markdown Preview runs in a sandboxed Webview whose `localResourceRoots` only allows loading local `.css` files from:
+1. The currently open workspace folder, or
+2. Installed extension directories (`~/.vscode/extensions/*`) that contribute `"markdown.previewStyles"`.
 
-### 2. GitHub Primer Stylesheets (`markdown-github-*.css`)
-Derived from [`sindresorhus/github-markdown-css`](https://github.com/sindresorhus/github-markdown-css) (generated from GitHub's official `@primer/css` Markdown styles) and adapted for standalone `.md.html` exports:
-- Replaces the `.markdown-body` container selector with `body` so all GitHub Primer rules apply directly to the bare `<body>` HTML template.
-- Sets full-viewport `html` background and foreground colors (`#ffffff` / `#0d1117`) outside the centered `1012px` `body` column.
-- Applies the same `6px` bottom margin under `.markdown-alert-title` and `0.5rem` icon spacing for GitHub-style alerts.
+Because `package.json` in this repository contributes `"markdown.previewStyles": ["./markdown-preview-layout.css"]`:
+- Every VS Code Markdown Preview automatically gets the `1012px` centered container (`948px` inner content width) and GitHub-style table overflow (`max-width: 100%; overflow: auto`).
+- VS Code automatically adds the `tbruneel.markdown-stylesheets-1.0.0` extension folder to `localResourceRoots`, allowing you to point VS Code's native **`"markdown.styles"`** setting at any of the four full theme stylesheets without triggering Webview security errors.
 
-### Why This Adaptation Is Needed
-By default, standalone HTML exports from `markdown-pdf` / `markdown-it` look noticeably different from VS Code's built-in preview and GitHub for three reasons:
-1. **Outdated bundled CSS:** `markdown-pdf` ships a 2018 snapshot of `markdown.css` where headings are non-bold (`font-weight: normal`) and `<h2>` headings lack bottom borders.
-2. **Missing `<body class="vscode-light / vscode-dark">` in `template.html`:** VS Code's native `markdown.css` scopes table and heading border colors under `.vscode-light` and `.vscode-dark` (e.g., `.vscode-light th`, `.vscode-light td`, `.vscode-light h1`, `.vscode-light h2`). Because the HTML template uses a bare `<body>` element without those classes, table borders and heading underlines disappear when using the stock stylesheet.
-3. **Missing Webview CSS variables & inline-code override:** Inside VS Code, the Webview host injects `--vscode-*` theme variables (`--vscode-editor-foreground`, `--vscode-textPreformat-background`, `--vscode-textBlockQuote-background`, etc.) at runtime, whereas `markdown-pdf`'s default CSS overrides inline `<code>` elements to yellow (`#C9AE75`).
-
-These stylesheets resolve all three issues and unify page/table geometry across GitHub, VS Code, and `.md.html` exports by:
-- Embedding VS Code's current `markdown-language-features` layout and typography rules (`font-weight: 600` headings, `<h1>` & `<h2>` underlines, spacing, and table cell padding).
-- Defining the exact **Light 2026** or **Dark 2026** `--vscode-*` CSS custom properties directly in `:root`.
-- Applying the `.vscode-light` / `.vscode-dark` border colors directly to `th`, `td`, `h1`, `h2`, and `hr` so standalone `.md.html` exports render identically to the live VS Code preview without requiring special `<body>` classes.
-- **GitHub-Compatible Page Width & Table Overflow (`width: 1012px`):**
-  - Sets `body { width: 1012px; margin: 0 auto; padding: 32px; box-sizing: border-box; }` (`948px` inner content width, matching GitHub.com's `README.md` container and `@media print { width: auto; }`).
-  - Sets `table { display: block; width: max-content; max-width: 100%; overflow: auto; }` so the page stays fixed at `1012px` (scrolling horizontally when the viewport is narrower) while tables wider than the `948px` inner content get their own self-contained horizontal scrollbar, rather than overflowing `body`.
-- **GitHub-Style Markdown Alerts (`.markdown-alert-*`):** Includes GitHub Primer Light & Dark alert styles (`> [!NOTE]`, `> [!TIP]`, `> [!IMPORTANT]`, `> [!WARNING]`, `> [!CAUTION]`) with compact `6px` title spacing (`margin-bottom: 6px`), matching [`tbruneel/vscode-markdown-alert`](https://github.com/tbruneel/vscode-markdown-alert) and [`tbruneel/vscode-markdown-html`](https://github.com/tbruneel/vscode-markdown-html).
+### 2. Origin of the Theme Stylesheets
+- **VS Code 2026 Stylesheets (`markdown-vscode-*.css`):**
+  - Derived from Microsoft Visual Studio Code's built-in `markdown-language-features/media/markdown.css` and `theme-defaults/themes/2026-light.json` & `2026-dark.json`.
+  - Embeds `:root` `--vscode-*` variables and applies `.vscode-light` / `.vscode-dark` border rules directly to `th`, `td`, `h1`, `h2`, and `hr` so standalone `.md.html` exports and live previews render identically.
+- **GitHub Primer Stylesheets (`markdown-github-*.css`):**
+  - Derived from [`sindresorhus/github-markdown-css`](https://github.com/sindresorhus/github-markdown-css) (`@primer/css`), adapted for bare `<body>` templates, `1012px` centered width, and GitHub-style alerts.
 
 ---
 
 ## Usage in VS Code (`settings.json`)
 
-Add the following settings to your user `settings.json` (`%APPDATA%\Code\User\settings.json`), choosing your preferred stylesheet:
+- **Default (Automatic Theme Matching):**
+  - Leave `"markdown.styles"` unset (`[]`). The built-in preview and `tbruneel/vscode-markdown-html` automatically follow your active VS Code Light/Dark theme.
+- **Custom Theme Override (via `"markdown.styles"`):**
+  - Set `"markdown.styles"` in `settings.json` to switch both the built-in Markdown Preview and `.md.html` exports to a specific stylesheet:
 
 ```json
 {
-    "markdown-html.convertOnSave": "ifExists",
-    "markdown-html.includeDefaultStyles": false,
-    "markdown-html.styles": [
-        "D:\\Development\\vscode-markdown-stylesheets\\markdown-vscode-light2026.css"
+    "markdown.styles": [
+        "C:\\Users\\Tuur Bruneel\\.vscode\\extensions\\tbruneel.markdown-stylesheets-1.0.0\\markdown-github-light.css"
     ]
 }
 ```
