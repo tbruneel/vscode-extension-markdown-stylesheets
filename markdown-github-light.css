@@ -1213,7 +1213,7 @@ body pre:not(.hljs) {
   padding: 0 48px 0 0;
   border-radius: 6px;
   border: 0;
-  overflow: hidden;
+  overflow: visible;
   background-color: #f6f8fa;
   color: #1f2328;
 }
@@ -1262,19 +1262,44 @@ body .code-block-copy-button:focus {
 }
 
 body .code-block-copy-button:hover {
-  background-color: #eff2f5;
-  color: #1f2328;
-  border-color: #d1d9e0;
+  background-color: #eaedf0;
+  color: #59636e;
+  border-color: transparent;
 }
 
 body .code-block-copy-button:active {
-  background-color: #e6eaef;
+  background-color: #e1e5e9;
 }
 
 body .code-block-copy-button.copied {
   color: #1a7f37;
-  border-color: #1a7f37;
+  border-color: transparent;
   opacity: 1;
+}
+
+body .code-block-copy-button:hover::before,
+body .code-block-copy-button:focus-visible::before,
+body .code-block-copy-button.copied::before {
+  content: "Copy code to clipboard";
+  position: absolute;
+  right: calc(100% + 4px);
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 4px 8px;
+  border-radius: 6px;
+  background-color: #25292e;
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+}
+
+body .code-block-copy-button.copied::before {
+  content: "Copied!";
 }
 
 body .code-block-copy-button:not(.copied) svg path:first-child {
@@ -1450,6 +1475,14 @@ body .hljs-deletion,
 body.vscode-light .hljs-deletion,
 body.vscode-dark .hljs-deletion {
   color: #82071e;
+  background-color: #ffebe9;
+}
+
+/* GitHub PrettyLights (.pl-ii) marks // comments in strict ```json blocks as invalid tokens */
+body code.language-json .hljs-comment,
+body.vscode-light code.language-json .hljs-comment,
+body.vscode-dark code.language-json .hljs-comment {
+  color: #d1242f;
   background-color: #ffebe9;
 }
 
