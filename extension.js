@@ -14,10 +14,13 @@ async function syncMarkdownStyles(extensionPath) {
   const currentStyles = mdConfig.get('styles', []);
 
   const normalizedExtDir = path.normalize(extensionPath).toLowerCase();
+  const managedFileNames = new Set(Object.values(THEME_FILES).map((f) => f.toLowerCase()));
   const otherStyles = Array.isArray(currentStyles)
-    ? currentStyles.filter(
-        (s) => typeof s === 'string' && !path.normalize(s).toLowerCase().startsWith(normalizedExtDir),
-      )
+    ? currentStyles.filter((s) => {
+        if (typeof s !== 'string') return false;
+        const norm = path.normalize(s).toLowerCase();
+        return !norm.startsWith(normalizedExtDir) && !managedFileNames.has(path.basename(norm));
+      })
     : [];
 
   if (theme === 'auto' || !THEME_FILES[theme]) {

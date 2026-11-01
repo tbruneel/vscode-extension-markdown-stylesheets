@@ -1589,44 +1589,41 @@ body.vscode-dark code.language-json .hljs-comment {
 
 </head>
 <body>
-<h1 id="vs-code-markdown-stylesheets-tbruneelvscode-markdown-stylesheets">VS Code Markdown Stylesheets (<code>tbruneel/vscode-markdown-stylesheets</code>)</h1>
+<h1 id="vs-code-markdown-stylesheets">VS Code Markdown Stylesheets</h1>
 <h2 id="key-takeaways">Key Takeaways</h2>
-<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p><p><strong>How this extension standardizes Markdown layout and theming across VS Code:</strong></p>
+<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p><p></p>
 <ul>
-<li><strong>Automatic <code>902px</code> GitHub Layout (<code>markdown-preview-layout.css</code>):</strong> Contributes a declarative preview stylesheet that gives every VS Code Markdown Preview a centered <code>902px</code> container (<code>838px</code> inner content width with <code>32px</code> padding), self-contained horizontal scrollbars on wide tables, and a <code>48px</code> right gutter in code blocks for the copy button.</li>
-<li><strong>Five Selectable Theme Modes (<code>markdown-stylesheets.theme</code>):</strong> Switch seamlessly between <code>&quot;auto&quot;</code> <em>(follows your active VS Code color theme)</em>, <code>&quot;vscode-light2026&quot;</code>, <code>&quot;vscode-dark2026&quot;</code>, <code>&quot;github-light&quot;</code>, and <code>&quot;github-dark&quot;</code> via the Command Palette or <code>settings.json</code>.</li>
-<li><strong>Zero Hardcoded File Paths &amp; Instant Sync:</strong> Automatically resolves its own installation directory on the current machine and updates VS Code's native <code>&quot;markdown.styles&quot;</code> setting—applying your chosen theme to <strong>both</strong> the built-in Markdown Preview and <a href="https://github.com/tbruneel/vscode-markdown-html"><code>.md.html</code> exports (<code>tbruneel/vscode-markdown-html</code>)</a>.</li>
+<li><strong>GitHub-Aligned Markdown Layout:</strong> Gives VS Code's Markdown Preview a fixed-width centered layout, scrollable tables, and scrollable blockquotes out of the box.</li>
+<li><strong>Selectable Stylesheet Themes:</strong> Switch between <code>&quot;auto&quot;</code>, <code>&quot;vscode-light2026&quot;</code>, <code>&quot;vscode-dark2026&quot;</code>, <code>&quot;github-light&quot;</code>, and <code>&quot;github-dark&quot;</code> via the Command Palette or <code>settings.json</code>.</li>
+<li><strong>Companion Extensions:</strong> Works alongside <a href="https://github.com/tbruneel/vscode-markdown-alert"><code>vscode-markdown-alert</code></a> and <a href="https://github.com/tbruneel/vscode-markdown-html"><code>vscode-markdown-html</code></a>.</li>
 </ul>
 </div>
-<h2 id="1-quick-start-guide">1. Quick Start Guide</h2>
-<p><strong>Zero configuration is required out of the box.</strong> Installing the extension immediately applies the <code>902px</code> GitHub layout while following your active VS Code color theme (<code>&quot;auto&quot;</code>).</p>
-<h3 id="option-a--switch-themes-via-the-command-palette">Option A — Switch Themes via the Command Palette</h3>
-<ol>
-<li>Open the Command Palette (<code>Ctrl+Shift+P</code> or <code>F1</code>).</li>
-<li>Run <strong><code>Markdown Stylesheets: Select Theme</code></strong>.</li>
-<li>Choose a theme from the quick-pick menu:<pre class="hljs"><code class="language-text"><div>auto              Follow active VS Code color theme (Default)
-vscode-light2026  VS Code Light 2026 (#FFFFFF / #202020)
-vscode-dark2026   VS Code Dark 2026 (#121314 / #BBBEBF)
-github-light      GitHub Light Default (#FFFFFF / #1F2328)
-github-dark       GitHub Dark Default (#0D1117 / #F0F6FC)
-</div></code></pre>
-</li>
-<li>Any open Markdown Preview and any open <code>.md.html</code> file in the workspace update automatically.</li>
-</ol>
-<h3 id="option-b--configure-in-settingsjson">Option B — Configure in <code>settings.json</code></h3>
-<p>Set <code>&quot;markdown-stylesheets.theme&quot;</code> in your User or Workspace <code>settings.json</code> (for example, to force GitHub Light in both Markdown Previews and <code>.md.html</code> exports):</p>
-<pre class="hljs"><code class="language-json"><div><span class="hljs-punctuation">{</span>
-    <span class="hljs-attr">&quot;markdown-stylesheets.theme&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;github-light&quot;</span>
-<span class="hljs-punctuation">}</span>
-</div></code></pre>
-<h2 id="2-included-themes--configuration-reference">2. Included Themes &amp; Configuration Reference</h2>
-<h3 id="21-available-theme-modes-markdown-stylesheetstheme">2.1 Available Theme Modes (<code>markdown-stylesheets.theme</code>)</h3>
+<h2 id="selecting-a-theme">Selecting a Theme</h2>
+<p>Installing the extension immediately applies the fixed-width centered layout while following your active VS Code color theme (<code>&quot;auto&quot;</code>). You can switch themes at any time using either of the following methods:</p>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Theme ID</th>
+<th style="text-align:left">Method</th>
+<th style="text-align:left">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>Command Palette</strong></td>
+<td style="text-align:left">Press <code>Ctrl+Shift+P</code> → Click <strong><code>Markdown Stylesheets: Select Theme</code></strong> → Pick a theme.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>Settings File</strong></td>
+<td style="text-align:left">In <code>settings.json</code>, set <code>&quot;markdown-stylesheets.theme&quot;</code> to one of the options listed below.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="available-themes">Available Themes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Theme</th>
 <th style="text-align:left">Bundled Stylesheet</th>
-<th style="text-align:left">Target Palette</th>
 <th style="text-align:center">Background</th>
 <th style="text-align:center">Body Text</th>
 <th style="text-align:left">Description</th>
@@ -1636,74 +1633,46 @@ github-dark       GitHub Dark Default (#0D1117 / #F0F6FC)
 <tr>
 <td style="text-align:left"><code>&quot;auto&quot;</code> <em>(default)</em></td>
 <td style="text-align:left"><code>markdown-preview-layout.css</code></td>
-<td style="text-align:left"><strong>Active VS Code Theme</strong></td>
-<td style="text-align:center"><em>(Theme)</em></td>
-<td style="text-align:center"><em>(Theme)</em></td>
-<td style="text-align:left">Uses VS Code's active color theme while applying the <code>902px</code> layout and table/code-block rules.</td>
+<td style="text-align:center"><em>(VS Code)</em></td>
+<td style="text-align:center"><em>(VS Code)</em></td>
+<td style="text-align:left">Uses VS Code's default colors while applying the fixed-width centered layout.</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>&quot;vscode-light2026&quot;</code></td>
 <td style="text-align:left"><code>markdown-vscode-light2026.css</code></td>
-<td style="text-align:left"><strong>VS Code Light 2026</strong></td>
 <td style="text-align:center"><code>#FFFFFF</code></td>
 <td style="text-align:center"><code>#202020</code></td>
-<td style="text-align:left">Standalone VS Code <code>2026-light.json</code> theme with <code>:root</code> <code>--vscode-*</code> variables and GitHub Alerts.</td>
+<td style="text-align:left">VS Code Light 2026 stylesheet with GitHub Alert colors.</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>&quot;vscode-dark2026&quot;</code></td>
 <td style="text-align:left"><code>markdown-vscode-dark2026.css</code></td>
-<td style="text-align:left"><strong>VS Code Dark 2026</strong></td>
 <td style="text-align:center"><code>#121314</code></td>
 <td style="text-align:center"><code>#BBBEBF</code></td>
-<td style="text-align:left">Standalone VS Code <code>2026-dark.json</code> theme with <code>:root</code> <code>--vscode-*</code> variables and GitHub Alerts.</td>
+<td style="text-align:left">VS Code Dark 2026 stylesheet with GitHub Alert colors.</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>&quot;github-light&quot;</code></td>
 <td style="text-align:left"><code>markdown-github-light.css</code></td>
-<td style="text-align:left"><strong>GitHub Light Default</strong></td>
 <td style="text-align:center"><code>#FFFFFF</code></td>
 <td style="text-align:center"><code>#1F2328</code></td>
-<td style="text-align:left">Official GitHub Primer Light stylesheet (<code>@primer/css</code>) with PrettyLights syntax highlighting.</td>
+<td style="text-align:left">GitHub Light stylesheet with GitHub syntax highlighting and GitHub Alert colors.</td>
 </tr>
 <tr>
 <td style="text-align:left"><code>&quot;github-dark&quot;</code></td>
 <td style="text-align:left"><code>markdown-github-dark.css</code></td>
-<td style="text-align:left"><strong>GitHub Dark Default</strong></td>
 <td style="text-align:center"><code>#0D1117</code></td>
 <td style="text-align:center"><code>#F0F6FC</code></td>
-<td style="text-align:left">Official GitHub Primer Dark stylesheet (<code>@primer/css</code>) with PrettyLights syntax highlighting.</td>
+<td style="text-align:left">GitHub Dark stylesheet with GitHub syntax highlighting and GitHub Alert colors.</td>
 </tr>
 </tbody>
 </table>
-<h3 id="22-commands--settings-reference">2.2 Commands &amp; Settings Reference</h3>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Identifier</th>
-<th style="text-align:left">Kind</th>
-<th style="text-align:left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>Markdown Stylesheets: Select Theme</code><br>(<code>markdown-stylesheets.selectTheme</code>)</td>
-<td style="text-align:left">Command</td>
-<td style="text-align:left">Opens an interactive quick-pick menu to switch <code>&quot;markdown-stylesheets.theme&quot;</code> globally.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>&quot;markdown-stylesheets.theme&quot;</code></td>
-<td style="text-align:left">Setting</td>
-<td style="text-align:left">Selects one of <code>&quot;auto&quot;</code>, <code>&quot;vscode-light2026&quot;</code>, <code>&quot;vscode-dark2026&quot;</code>, <code>&quot;github-light&quot;</code>, or <code>&quot;github-dark&quot;</code>.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>&quot;markdown.styles&quot;</code></td>
-<td style="text-align:left">Managed Setting</td>
-<td style="text-align:left">Automatically updated by <code>extension.js</code> with the absolute path to the selected theme stylesheet (or cleared when set to <code>&quot;auto&quot;</code>), while preserving any custom non-extension entries.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="3-companion-extensions-ecosystem">3. Companion Extensions Ecosystem</h2>
-<p>This extension works together with two companion extensions to provide a unified authoring, previewing, and exporting workflow:</p>
+<ul>
+<li><strong>Default <code>&quot;auto&quot;</code> Mode:</strong> Leaves <code>&quot;markdown.styles&quot;</code> untouched so the preview follows whatever default colors VS Code is set to, while <code>markdown-preview-layout.css</code> applies the fixed-width layout, table scrollbars, and blockquote styling.</li>
+<li><strong>Explicit Theme Overrides:</strong> Selecting a specific theme automatically resolves the bundled <code>.css</code> path on disk and updates VS Code's <code>&quot;markdown.styles&quot;</code> setting (while preserving any unrelated custom stylesheets), applying that theme to both VS Code's Markdown Preview and new <code>.md.html</code> exports.</li>
+</ul>
+<h2 id="companion-extensions">Companion Extensions</h2>
+<p>This repository is part of a three-extension setup:</p>
 <table>
 <thead>
 <tr>
@@ -1714,94 +1683,24 @@ github-dark       GitHub Dark Default (#0D1117 / #F0F6FC)
 <tbody>
 <tr>
 <td style="text-align:left"><strong><a href="https://github.com/tbruneel/vscode-markdown-stylesheets"><code>tbruneel/vscode-markdown-stylesheets</code></a></strong> <em>(this repo)</em></td>
-<td style="text-align:left">Contributes <code>markdown-preview-layout.css</code> to <code>&quot;markdown.previewStyles&quot;</code>, whitelists the theme stylesheets in VS Code's Webview sandbox, and syncs <code>&quot;markdown.styles&quot;</code> from <code>&quot;markdown-stylesheets.theme&quot;</code>.</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong><a href="https://github.com/tbruneel/vscode-markdown-html"><code>tbruneel/vscode-markdown-html</code></a></strong></td>
-<td style="text-align:left">Reads <code>&quot;markdown.styles&quot;</code> to inline your active theme directly into self-contained <code>.md.html</code> files, re-exports open documents automatically when you switch themes, and provides a built-in <code>*.md.html</code> viewer.</td>
+<td style="text-align:left">Provides custom Markdown stylesheet themes that align with GitHub styling (such as a fixed-width centered layout, and blockquotes with horizontal scrollbars and a copy-to-clipboard button).</td>
 </tr>
 <tr>
 <td style="text-align:left"><strong><a href="https://github.com/tbruneel/vscode-markdown-alert"><code>tbruneel/vscode-markdown-alert</code></a></strong></td>
-<td style="text-align:left">Renders GitHub-style blockquote alerts (<code>&gt; [!NOTE]</code>, <code>&gt; [!TIP]</code>, <code>&gt; [!IMPORTANT]</code>, <code>&gt; [!WARNING]</code>, <code>&gt; [!CAUTION]</code>) in VS Code's live Markdown Preview and Notebooks.</td>
+<td style="text-align:left">Provides support for GitHub Alert callouts in VS Code's live Markdown Preview, with support for automatic theme detection and Markdown stylesheet theme overrides.</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><a href="https://github.com/tbruneel/vscode-markdown-html"><code>tbruneel/vscode-markdown-html</code></a></strong></td>
+<td style="text-align:left">Exports Markdown files (<code>.md</code>) to self-contained Markdown files (<code>.md.html</code>) which are automatically opened by VS Code's built-in web browser.</td>
 </tr>
 </tbody>
 </table>
-<h2 id="4-technical-overview-how-the-extension-works">4. Technical Overview: How the Extension Works</h2>
-<h3 id="41-solving-vs-codes-webview-localresourceroots-sandbox">4.1 Solving VS Code's Webview <code>localResourceRoots</code> Sandbox</h3>
-<p>By default, VS Code's built-in Markdown Preview runs inside a sandboxed Webview whose Content Security Policy and <code>localResourceRoots</code> restrict which local <code>.css</code> files can be loaded via <code>&quot;markdown.styles&quot;</code>:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Stylesheet Location</th>
-<th style="text-align:left">Allowed by VS Code <code>&quot;markdown.styles&quot;</code>?</th>
-<th style="text-align:left">Why It Matters</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong>Arbitrary User Path</strong><br><em>(e.g. <code>C:\Users\&lt;name&gt;\styles\custom.css</code>)</em></td>
-<td style="text-align:left"><strong>Blocked</strong> <em>(outside workspace)</em></td>
-<td style="text-align:left">VS Code refuses to load local files outside the open workspace folder unless their parent directory is registered in <code>localResourceRoots</code>.</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>Extension Contributing <code>&quot;markdown.previewStyles&quot;</code></strong><br>(<code>~/.vscode/extensions/tbruneel.markdown-stylesheets-1.0.0/</code>)</td>
-<td style="text-align:left"><strong>Always Whitelisted</strong></td>
-<td style="text-align:left">Contributing <code>&quot;markdown.previewStyles&quot;: [&quot;./markdown-preview-layout.css&quot;]</code> in <a href="package.json"><code>package.json</code></a> causes VS Code to add the entire extension folder to <code>localResourceRoots</code> across all workspaces and single-file windows.</td>
-</tr>
-</tbody>
-</table>
-<p>When you change <code>&quot;markdown-stylesheets.theme&quot;</code>, <a href="extension.js"><code>extension.js</code></a> resolves <code>context.extensionPath</code> on the current machine and writes the full path of the chosen <code>.css</code> file into <code>&quot;markdown.styles&quot;</code> automatically—without touching any unrelated custom stylesheets you may have configured.</p>
-<h3 id="42-end-to-end-theme-synchronization-architecture">4.2 End-to-End Theme Synchronization Architecture</h3>
-<pre class="hljs"><code class="language-text"><div>+-------------------------------------------------------------------------------+
-| User Action: Command Palette (&quot;Select Theme&quot;) or settings.json                |
-|  -&gt; Sets &quot;markdown-stylesheets.theme&quot; (e.g. &quot;github-light&quot;)                   |
-+---------------------------------------+---------------------------------------+
-                                        |
-                                        v
-+-------------------------------------------------------------------------------+
-| vscode-markdown-stylesheets (extension.js)                                    |
-|  1. Contributes &quot;markdown.previewStyles&quot;: [&quot;./markdown-preview-layout.css&quot;]   |
-|     (whitelists extension directory in VS Code Webview localResourceRoots)    |
-|  2. Resolves &lt;extensionPath&gt;/markdown-github-light.css                        |
-|  3. Updates global &quot;markdown.styles&quot; (or clears it when theme == &quot;auto&quot;)      |
-+-------------------+---------------------------------------+-------------------+
-                    |                                       |
-                    v                                       v
-+---------------------------------------+   +-----------------------------------+
-| Built-In VS Code Markdown Preview     |   | vscode-markdown-html              |
-|  • Always loads 902px layout CSS      |   |  • Inlines &quot;markdown.styles&quot; CSS  |
-|  • Loads active theme CSS from        |   |    directly into &lt;file&gt;.md.html   |
-|    whitelisted &quot;markdown.styles&quot; path |   |  • Auto-re-exports open .md files |
-+---------------------------------------+   +-----------------------------------+
+<h2 id="building--packaging-from-source">Building &amp; Packaging from Source</h2>
+<pre class="hljs"><code class="language-powershell"><div><span class="hljs-comment"># No compile or bundle step is required (pure JavaScript and CSS)</span>
+
+<span class="hljs-comment"># Package into a local .vsix archive</span>
+npx @vscode/vsce package <span class="hljs-literal">--no-dependencies</span>
 </div></code></pre>
-<h3 id="43-stylesheet-engineering--specificity-overrides">4.3 Stylesheet Engineering &amp; Specificity Overrides</h3>
-<p>To ensure that live VS Code Markdown Previews and standalone <code>.md.html</code> exports render identically to GitHub.com, the stylesheets implement several targeted engineering rules:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Area</th>
-<th style="text-align:left">Technical Implementation</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><strong><code>902px</code> Container (<code>838px</code> Content Width)</strong></td>
-<td style="text-align:left">• Sets <code>body { width: 902px; margin: 0 auto; padding: 32px; box-sizing: border-box; }</code> so text lines, tables, and code blocks match GitHub's <code>838px</code> inner README column.<br>• Resets <code>body { width: auto; padding: 1em 26px 0; }</code> inside <code>@media print</code> for clean PDF/print pagination.<br>• Sets <code>table { display: block; width: max-content; max-width: 100%; overflow: auto; }</code> so wide tables scroll horizontally inside the column without stretching the page.</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>VS Code Webview Specificity Overrides</strong></td>
-<td style="text-align:left">• VS Code's Markdown Preview injects internal <code>_defaultStyles</code> with class-qualified selectors such as <code>.vscode-dark code</code>, <code>.vscode-dark blockquote</code>, and <code>.vscode-dark .hljs-keyword</code> (specificity <code>(0,1,1)</code>), which beat bare <code>body code</code> or <code>body .hljs-keyword</code> rules (<code>(0,0,2)</code> / <code>(0,1,1)</code>).<br>• All theme stylesheets duplicate critical color and token selectors under <code>body.vscode-light</code> and <code>body.vscode-dark</code> (specificity <code>(0,2,1)</code>), ensuring a Light theme stays 100% Light even when VS Code itself is running a Dark editor theme (and vice versa).</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>Code Block <code>48px</code> Copy-Button Gutter</strong></td>
-<td style="text-align:left">• Applies <code>padding: 0 48px 0 0; position: relative; overflow: visible;</code> to <code>pre, pre.hljs, pre:not(.hljs)</code> and moves the <code>16px</code> padding and horizontal scrollbar (<code>overflow: auto</code>) onto the inner <code>code</code> / <code>code &gt; div</code> element.<br>• Reserves a dedicated <code>48px</code> right-hand gutter for the <code>32x32</code> copy-to-clipboard button so code text never collides with the button, while <code>overflow: visible</code> on <code>pre</code> allows the <code>&quot;Copy code to clipboard&quot;</code> / <code>&quot;Copied!&quot;</code> hover tooltip to render cleanly.</td>
-</tr>
-<tr>
-<td style="text-align:left"><strong>GitHub PrettyLights Syntax Fidelity</strong></td>
-<td style="text-align:left">• Maps <code>highlight.js</code> (<code>.hljs-*</code>) classes to official GitHub Primer Light &amp; Dark PrettyLights colors.<br>• Distinguishes JSON property keys (<code>#116329</code> in Light / <code>#7ee787</code> in Dark) from string values (<code>#0a3069</code> in Light / <code>#a5d6ff</code> in Dark).<br>• Matches GitHub's strict JSON grammar by highlighting <code>//</code> comments inside <code>```json</code> blocks as invalid tokens (<code>#d1242f</code> on <code>#ffebe9</code> in Light; <code>#f85149</code> in Dark) while keeping comments neutral gray inside <code>```jsonc</code> and <code>```json5</code> blocks.</td>
-</tr>
-</tbody>
-</table>
 
 <script>
 (function () {
