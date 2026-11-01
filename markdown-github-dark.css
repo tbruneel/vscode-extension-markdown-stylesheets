@@ -1157,10 +1157,6 @@ body .markdown-alert > p:empty {
   display: none;
 }
 
-body .markdown-alert .markdown-alert-title {
-  margin-bottom: 6px;
-}
-
 body .markdown-alert .markdown-alert-title .octicon {
   margin-right: 0.5rem;
 }
