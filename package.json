@@ -1,7 +1,7 @@
 {
   "name": "markdown-stylesheets",
   "displayName": "Markdown Stylesheets",
-  "description": "GitHub-compatible 1012px Markdown preview layout and whitelisted VS Code 2026 & GitHub Primer CSS themes for 'markdown.styles' and 'vscode-markdown-html'.",
+  "description": "GitHub-compatible 1012px Markdown preview layout and selectable VS Code 2026 & GitHub Primer CSS themes for 'markdown.styles' and 'vscode-markdown-html'.",
   "version": "1.0.0",
   "publisher": "tbruneel",
   "engines": {
@@ -14,9 +14,44 @@
     "type": "git",
     "url": "https://github.com/tbruneel/vscode-markdown-stylesheets.git"
   },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
   "contributes": {
     "markdown.previewStyles": [
       "./markdown-preview-layout.css"
-    ]
+    ],
+    "commands": [
+      {
+        "command": "markdown-stylesheets.selectTheme",
+        "title": "Markdown Stylesheets: Select Theme"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Markdown Stylesheets",
+      "properties": {
+        "markdown-stylesheets.theme": {
+          "type": "string",
+          "enum": [
+            "auto",
+            "vscode-light2026",
+            "vscode-dark2026",
+            "github-light",
+            "github-dark"
+          ],
+          "enumDescriptions": [
+            "Follow the active VS Code color theme automatically (clears managed entries from 'markdown.styles').",
+            "Force VS Code Light 2026 (#FFFFFF background, #202020 text) in both Markdown Preview and .md.html exports.",
+            "Force VS Code Dark 2026 (#121314 background, #BBBEBF text) in both Markdown Preview and .md.html exports.",
+            "Force GitHub Light Default (#FFFFFF background, #1F2328 text) in both Markdown Preview and .md.html exports.",
+            "Force GitHub Dark Default (#0D1117 background, #F0F6FC text) in both Markdown Preview and .md.html exports."
+          ],
+          "default": "auto",
+          "description": "Select the Markdown stylesheet theme for VS Code's built-in Markdown Preview and .md.html exports. Automatically updates 'markdown.styles' with the resolved extension path."
+        }
+      }
+    }
   }
 }
