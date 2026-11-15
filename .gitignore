@@ -1,5 +1,6 @@
 *.htmd
 node_modules/
+build/
 *.vsix
 .DS_Store
 

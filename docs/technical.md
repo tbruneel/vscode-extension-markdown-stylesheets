@@ -6,8 +6,11 @@ This engineering reference covers the dual stylesheet and preview-script injecti
 
 ```text
 vscode-extension-markdown-stylesheets/
-├── .gitignore                        # Ignores *.htmd, node_modules/, *.vsix, .DS_Store
-├── .vscodeignore                     # Excludes package-lock.json, .gitignore, *.vsix, docs/, .agents/, *.htmd
+├── .gitignore                        # Ignores *.htmd, node_modules/, build/, *.vsix, .DS_Store
+├── .vscodeignore                     # Excludes build.ps1, build/, package-lock.json, docs/, .agents/, *.htmd
+├── assets/
+│   └── icon.png                      # 256x256 Marketplace extension icon
+├── build.ps1                         # Validates JS syntax and packages build\<repo>-v<ver>.vsix
 ├── license.md                        # MIT license
 ├── package.json                      # Manifest declaring previewStyles, previewScripts, selectTheme & theme setting
 ├── readme.md                         # User-facing overview, theme table & usage
@@ -61,9 +64,15 @@ When a named preset is active, [`syncMarkdownStyles`](../src/extension.js#L11-L4
 ## 4. Packaging
 
 ```powershell
-# Inspect packaged archive contents and build the local .vsix package
+# Validate JavaScript syntax and package build\vscode-extension-markdown-stylesheets-v<version>.vsix
+.\build.ps1
+
+# Package and immediately install into Microsoft VS Code
+.\build.ps1 -Install
+
+# Equivalent npm wrapper or manual inspection commands
+npm run package
 npx @vscode/vsce ls --no-dependencies
-npx @vscode/vsce package --no-dependencies
 ```
 
-Because [`package.json`](../package.json) sets `"main": "./src/extension.js"` with pure CommonJS JavaScript (`vscode` and `path`), browser preview scripts, and static CSS assets, no compilation or bundling step is required. [`.vscodeignore`](../.vscodeignore) excludes `package-lock.json`, `.gitignore`, `*.vsix`, `**/*.htmd`, `docs/**`, and `.agents/**`, retaining `package.json`, `license.md`, `readme.md`, `src/extension.js`, `scripts/copy-code-button.js`, and `styles/*.css`.
+Because [`package.json`](../package.json) sets `"main": "./src/extension.js"` with pure CommonJS JavaScript (`vscode` and `path`), browser preview scripts, and static CSS assets, no compilation or bundling step is required. [`.gitignore`](../.gitignore) ignores `build/`, and [`.vscodeignore`](../.vscodeignore) excludes `package-lock.json`, `.gitignore`, `build.ps1`, `build/**`, `*.vsix`, `**/*.htmd`, `docs/**`, and `.agents/**`, retaining `package.json`, `license.md`, `readme.md`, `assets/icon.png`, `src/extension.js`, `scripts/copy-code-button.js`, and `styles/*.css`.
