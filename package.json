@@ -2,7 +2,7 @@
   "name": "markdown-stylesheets",
   "displayName": "Markdown Stylesheets",
   "description": "Provides custom Markdown preview and export styling with a fixed-width centered layout, horizontally scrollable tables, blockquotes, and code blocks with a copy-to-clipboard button, plus switchable GitHub and VS Code themes.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "tbruneel",
   "license": "MIT",
   "homepage": "https://github.com/tbruneel/vscode-extension-markdown-stylesheets#readme",
@@ -31,7 +31,7 @@
   "activationEvents": [
     "onStartupFinished"
   ],
-  "main": "./src/extension.js",
+  "main": "./source/extension.js",
   "scripts": {
     "package": "powershell -NoProfile -ExecutionPolicy Bypass -File ./build.ps1"
   },
@@ -40,7 +40,7 @@
       "./styles/markdown-preview-layout.css"
     ],
     "markdown.previewScripts": [
-      "./scripts/copy-code-button.js"
+      "./source/copy-code-button.js"
     ],
     "commands": [
       {

@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Validates syntax and packages this VS Code extension into a Marketplace-ready .vsix archive under build\.
+    Validates syntax and packages this VS Code extension into a Marketplace-ready .vsix archive under package\.
 .PARAMETER Install
     Installs the built .vsix package into Microsoft VS Code after packaging.
 #>
@@ -33,9 +33,27 @@ if (-not [string]::IsNullOrWhiteSpace([string]$pkg.icon)) {
     }
 }
 
+function New-MarketplaceReadme {
+    param([string]$SourceReadmePath)
+
+    $text = [System.IO.File]::ReadAllText($SourceReadmePath, [System.Text.UTF8Encoding]::new($false))
+    $linkMap = [ordered]@{
+        '](https://github.com/tbruneel/vscode-extension-markdown-alerts)'                   = '](https://marketplace.visualstudio.com/items?itemName=tbruneel.markdown-alerts)'
+        '](https://github.com/tbruneel/vscode-extension-markdown-stylesheets)'              = '](https://marketplace.visualstudio.com/items?itemName=tbruneel.markdown-stylesheets)'
+        '](https://github.com/tbruneel/vscode-extension-markdown-htmd-exports)'             = '](https://marketplace.visualstudio.com/items?itemName=tbruneel.markdown-htmd-exports)'
+        '](https://github.com/tbruneel/vscode-extension-markdown-htmd-exports-antigravity)' = '](https://marketplace.visualstudio.com/items?itemName=tbruneel.markdown-htmd-exports-antigravity)'
+        '*(this repo)*'                                                                     = '*(this extension)*'
+    }
+    foreach ($entry in $linkMap.GetEnumerator()) {
+        $text = $text.Replace($entry.Key, $entry.Value)
+    }
+    return $text
+}
+
+$tempReadmePath = $null
 Push-Location $repoRoot
 try {
-    foreach ($jsRel in @('src\extension.js', 'scripts\copy-code-button.js')) {
+    foreach ($jsRel in @('source\extension.js', 'source\copy-code-button.js')) {
         $jsPath = Join-Path $repoRoot $jsRel
         if (Test-Path -LiteralPath $jsPath -PathType Leaf) {
             node -c $jsPath
@@ -43,17 +61,21 @@ try {
         }
     }
 
-    $buildDir = Join-Path $repoRoot 'build'
-    if (-not (Test-Path -LiteralPath $buildDir -PathType Container)) {
-        New-Item -Path $buildDir -ItemType Directory -Force | Out-Null
+    $packageDir = Join-Path $repoRoot 'package'
+    if (-not (Test-Path -LiteralPath $packageDir -PathType Container)) {
+        New-Item -Path $packageDir -ItemType Directory -Force | Out-Null
     }
 
-    $vsixPath = Join-Path $buildDir "$repoName-v$($pkg.version).vsix"
+    $vsixPath = Join-Path $packageDir "$repoName-v$($pkg.version).vsix"
     if (Test-Path -LiteralPath $vsixPath -PathType Leaf) {
         Remove-Item -LiteralPath $vsixPath -Force
     }
 
-    npx @vscode/vsce package --no-dependencies -o $vsixPath
+    $tempReadmePath = Join-Path $packageDir 'marketplace-readme.md'
+    $marketplaceReadme = New-MarketplaceReadme -SourceReadmePath (Join-Path $repoRoot 'readme.md')
+    [System.IO.File]::WriteAllText($tempReadmePath, $marketplaceReadme, [System.Text.UTF8Encoding]::new($false))
+
+    npx @vscode/vsce package --no-dependencies --readme-path package/marketplace-readme.md --githubBranch main -o $vsixPath
     if ($LASTEXITCODE -ne 0) { throw "vsce package failed with exit code $LASTEXITCODE." }
 
     Write-Host "[BUILD] Packaged VS Code Marketplace archive: $vsixPath" -ForegroundColor Green
@@ -64,5 +86,8 @@ try {
         Write-Host "[BUILD] Installed extension into Microsoft VS Code: $($pkg.publisher).$($pkg.name) v$($pkg.version)" -ForegroundColor Cyan
     }
 } finally {
+    if ($tempReadmePath -and (Test-Path -LiteralPath $tempReadmePath -PathType Leaf)) {
+        Remove-Item -LiteralPath $tempReadmePath -Force
+    }
     Pop-Location
 }

@@ -204,7 +204,7 @@ blockquote > :last-child {
 	margin-bottom: 0;
 }
 
-/* GitHub Alert palette overrides for Markdown Alert (structure provided by tbruneel.markdown-alert) */
+/* GitHub Alert palette overrides for Markdown Alerts (structure provided by tbruneel.markdown-alerts) */
 body .markdown-alert,
 body.vscode-light .markdown-alert,
 body.vscode-dark .markdown-alert,

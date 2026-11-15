@@ -18,7 +18,7 @@ Once installed, **Markdown Stylesheets** gives every preview and exported `.htmd
 | `"github-light"` | GitHub Light styling matching how Markdown renders on GitHub in light mode. |
 | `"github-dark"` | GitHub Dark styling matching how Markdown renders on GitHub in dark mode. |
 
-Selecting any theme updates both VS Code's live Markdown Preview and `.htmd` documents exported with [Markdown HTML](https://github.com/tbruneel/vscode-extension-markdown-html), while keeping any extra custom stylesheets you already configured intact.
+Selecting any theme updates both VS Code's live Markdown Preview and `.htmd` documents exported with [Markdown HTMD Exports](https://github.com/tbruneel/vscode-extension-markdown-htmd-exports), while keeping any extra custom stylesheets you already configured intact.
 
 ## Usage
 
@@ -26,14 +26,14 @@ Centered layout, scrollable blocks, and code copy buttons activate automatically
 
 ## Companion Projects
 
-Each extension in this suite handles one responsibility and works on its own, except **Markdown HTML for Antigravity** which builds on **Markdown HTML**. Both VS Code's built-in Markdown Preview and **Markdown HTML** follow your active VS Code color theme and custom Markdown stylesheets out of the box, and automatically pick up **Markdown Alert** and **Markdown Stylesheets** whenever they are installed.
+Each extension in this suite handles one responsibility and works on its own, except **Markdown HTMD Exports for Antigravity** which builds on **Markdown HTMD Exports**. Both VS Code's built-in Markdown Preview and **Markdown HTMD Exports** follow your active VS Code color theme and custom Markdown stylesheets out of the box, and automatically pick up **Markdown Alerts** and **Markdown Stylesheets** whenever they are installed.
 
 | Extension | What It Provides | Works With |
 | :--- | :--- | :--- |
-| **[Markdown Alert](https://github.com/tbruneel/vscode-extension-markdown-alert)** | GitHub Alert callout parsing and styling (`[!NOTE]` through `[!CAUTION]`). | Standalone in Markdown Preview; picked up automatically by **Markdown HTML**. |
-| **[Markdown Stylesheets](https://github.com/tbruneel/vscode-extension-markdown-stylesheets)** *(this repo)* | Centered reading width, scrollable tables and blockquotes, code copy buttons, and switchable GitHub / VS Code themes. | Standalone in Markdown Preview; picked up automatically by **Markdown HTML**. |
-| **[Markdown HTML](https://github.com/tbruneel/vscode-extension-markdown-html)** | Self-contained `.htmd` export, auto-refresh on save, built-in VS Code `.htmd` viewer, and Windows browser association. | Standalone (uses active VS Code theme and custom stylesheets); adopts **Markdown Alert** and **Markdown Stylesheets** if installed. |
-| **[Markdown HTML for Antigravity](https://github.com/tbruneel/vscode-extension-markdown-html-antigravity)** | Antigravity agent hook and CLI skill that keep `.htmd` files synced when agents edit `.md` files on disk. | Requires **Markdown HTML** (installed automatically) and inherits your full VS Code setup. |
+| **[Markdown Alerts](https://github.com/tbruneel/vscode-extension-markdown-alerts)** | GitHub Alert callout parsing and styling (`[!NOTE]` through `[!CAUTION]`). | Standalone in Markdown Preview; picked up automatically by **Markdown HTMD Exports**. |
+| **[Markdown Stylesheets](https://github.com/tbruneel/vscode-extension-markdown-stylesheets)** *(this repo)* | Centered reading width, scrollable tables and blockquotes, code copy buttons, and switchable GitHub / VS Code themes. | Standalone in Markdown Preview; picked up automatically by **Markdown HTMD Exports**. |
+| **[Markdown HTMD Exports](https://github.com/tbruneel/vscode-extension-markdown-htmd-exports)** | Self-contained `.htmd` export, auto-refresh on save, built-in VS Code `.htmd` viewer, and Windows browser association. | Standalone (uses active VS Code theme and custom stylesheets); adopts **Markdown Alerts** and **Markdown Stylesheets** if installed. |
+| **[Markdown HTMD Exports for Antigravity](https://github.com/tbruneel/vscode-extension-markdown-htmd-exports-antigravity)** | Antigravity agent hook and CLI skill that keep `.htmd` files synced when agents edit `.md` files on disk. | Requires **Markdown HTMD Exports** (installed automatically) and inherits your full VS Code setup. |
 
 ## Documentation
 

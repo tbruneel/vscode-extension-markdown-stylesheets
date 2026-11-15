@@ -1,8 +1,9 @@
 package-lock.json
 .gitignore
-*.vsix
+**/*.vsix
 **/*.htmd
 docs/**
 .agents/**
 build.ps1
-build/**
+package/**
+readme.md
