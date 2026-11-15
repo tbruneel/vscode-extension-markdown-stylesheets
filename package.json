@@ -1,7 +1,7 @@
 {
   "name": "markdown-stylesheets",
   "displayName": "Markdown Stylesheets",
-  "description": "Provides custom Markdown stylesheet themes that align with GitHub styling (such as a fixed-width centered layout, and blockquotes with horizontal scrollbars and a copy-to-clipboard button).",
+  "description": "Provides custom Markdown preview and export styling with a fixed-width centered layout, horizontally scrollable tables, blockquotes, and code blocks with a copy-to-clipboard button, plus switchable GitHub and VS Code themes.",
   "version": "1.0.0",
   "publisher": "tbruneel",
   "license": "MIT",
@@ -26,6 +26,9 @@
   "contributes": {
     "markdown.previewStyles": [
       "./styles/markdown-preview-layout.css"
+    ],
+    "markdown.previewScripts": [
+      "./scripts/copy-code-button.js"
     ],
     "commands": [
       {

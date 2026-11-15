@@ -113,7 +113,8 @@ ol {
 
 hr,
 .vscode-light hr,
-.vscode-dark hr {
+.vscode-dark hr,
+.vscode-high-contrast hr {
 	border: 0;
 	height: 1px;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.18);
@@ -121,7 +122,8 @@ hr,
 
 h1,
 .vscode-light h1,
-.vscode-dark h1 {
+.vscode-dark h1,
+.vscode-high-contrast h1 {
 	font-size: 2em;
 	margin-top: 0;
 	padding-bottom: 0.3em;
@@ -130,7 +132,8 @@ h1,
 
 h2,
 .vscode-light h2,
-.vscode-dark h2 {
+.vscode-dark h2,
+.vscode-high-contrast h2 {
 	font-size: 1.5em;
 	padding-bottom: 0.3em;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.18);
@@ -163,7 +166,8 @@ table {
 
 th,
 .vscode-light th,
-.vscode-dark th {
+.vscode-dark th,
+.vscode-high-contrast th {
 	text-align: left;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.69);
 }
@@ -176,97 +180,41 @@ td {
 table > tbody > tr + tr > td,
 .vscode-light td,
 .vscode-dark td,
+.vscode-high-contrast td,
 .vscode-light table > tbody > tr + tr > td,
-.vscode-dark table > tbody > tr + tr > td {
+.vscode-dark table > tbody > tr + tr > td,
+.vscode-high-contrast table > tbody > tr + tr > td {
 	border-top: 1px solid rgba(0, 0, 0, 0.18);
 }
 
 blockquote {
 	margin: 0 0 16px 0;
-	padding: 0 16px 0 10px;
+	padding: 8px 16px 8px 12px;
+	overflow-x: auto;
 	background: var(--vscode-textBlockQuote-background);
 	border-left: 5px solid var(--vscode-textBlockQuote-border);
 	border-radius: 2px;
 }
 
-/* GitHub-style Markdown Alerts (> [!NOTE], > [!TIP], > [!IMPORTANT], > [!WARNING], > [!CAUTION]) */
-.markdown-alert {
+blockquote > :first-child {
+	margin-top: 0;
+}
+
+blockquote > :last-child {
+	margin-bottom: 0;
+}
+
+/* GitHub Alert palette overrides for Markdown Alert (structure provided by tbruneel.markdown-alert) */
+body .markdown-alert,
+body.vscode-light .markdown-alert,
+body.vscode-dark .markdown-alert,
+body.vscode-high-contrast .markdown-alert {
+	--color-alert-default-border: #888;
 	--color-note: #0969da;
 	--color-tip: #1a7f37;
 	--color-warning: #9a6700;
 	--color-caution: #d1242f;
 	--color-important: #8250df;
-	padding: 0.5rem 1rem;
-	margin-bottom: 16px;
-	color: inherit;
-	border-left: 0.25em solid #888;
-}
-
-.markdown-alert > :first-child {
-	margin-top: 0;
-}
-
-.markdown-alert > :last-child {
-	margin-bottom: 0;
-}
-
-.markdown-alert > p:empty {
-	display: none;
-}
-
-.markdown-alert .markdown-alert-title {
-	display: flex;
-	font-weight: 500;
-	align-items: center;
-	line-height: 1;
-}
-
-.markdown-alert .markdown-alert-title .octicon {
-	margin-right: 0.5rem;
-	display: inline-block;
-	overflow: visible !important;
-	vertical-align: text-bottom;
-	fill: currentColor;
-}
-
-.markdown-alert.markdown-alert-note {
-	border-left-color: var(--color-note);
-}
-
-.markdown-alert.markdown-alert-note .markdown-alert-title {
-	color: var(--color-note);
-}
-
-.markdown-alert.markdown-alert-important {
-	border-left-color: var(--color-important);
-}
-
-.markdown-alert.markdown-alert-important .markdown-alert-title {
-	color: var(--color-important);
-}
-
-.markdown-alert.markdown-alert-warning {
-	border-left-color: var(--color-warning);
-}
-
-.markdown-alert.markdown-alert-warning .markdown-alert-title {
-	color: var(--color-warning);
-}
-
-.markdown-alert.markdown-alert-tip {
-	border-left-color: var(--color-tip);
-}
-
-.markdown-alert.markdown-alert-tip .markdown-alert-title {
-	color: var(--color-tip);
-}
-
-.markdown-alert.markdown-alert-caution {
-	border-left-color: var(--color-caution);
-}
-
-.markdown-alert.markdown-alert-caution .markdown-alert-title {
-	color: var(--color-caution);
 }
 
 code {
@@ -295,7 +243,8 @@ pre:not(.hljs) {
 }
 
 pre:not(.hljs) > code,
-pre.hljs code > div {
+pre.hljs code > div,
+pre.hljs > code:not(:has(> div)) {
 	display: block;
 	padding: 16px;
 	border-radius: 3px;
@@ -377,6 +326,176 @@ pre:hover > .code-block-copy-button,
 	.code-block-copy-button {
 		display: none !important;
 	}
+}
+
+/* Visual Studio Light syntax highlighting overrides */
+body .hljs-function,
+body.vscode-light .hljs-function,
+body.vscode-dark .hljs-function,
+body.vscode-high-contrast .hljs-function,
+body .hljs-params,
+body.vscode-light .hljs-params,
+body.vscode-dark .hljs-params,
+body.vscode-high-contrast .hljs-params,
+body .hljs-formula,
+body.vscode-light .hljs-formula,
+body.vscode-dark .hljs-formula,
+body.vscode-high-contrast .hljs-formula {
+	color: inherit;
+}
+
+body .hljs-comment,
+body.vscode-light .hljs-comment,
+body.vscode-dark .hljs-comment,
+body.vscode-high-contrast .hljs-comment,
+body .hljs-quote,
+body.vscode-light .hljs-quote,
+body.vscode-dark .hljs-quote,
+body.vscode-high-contrast .hljs-quote,
+body .hljs-number,
+body.vscode-light .hljs-number,
+body.vscode-dark .hljs-number,
+body.vscode-high-contrast .hljs-number,
+body .hljs-class,
+body.vscode-light .hljs-class,
+body.vscode-dark .hljs-class,
+body.vscode-high-contrast .hljs-class,
+body .hljs-variable,
+body.vscode-light .hljs-variable,
+body.vscode-dark .hljs-variable,
+body.vscode-high-contrast .hljs-variable {
+	color: #008000;
+}
+
+body .hljs-keyword,
+body.vscode-light .hljs-keyword,
+body.vscode-dark .hljs-keyword,
+body.vscode-high-contrast .hljs-keyword,
+body .hljs-selector-tag,
+body.vscode-light .hljs-selector-tag,
+body.vscode-dark .hljs-selector-tag,
+body.vscode-high-contrast .hljs-selector-tag,
+body .hljs-name,
+body.vscode-light .hljs-name,
+body.vscode-dark .hljs-name,
+body.vscode-high-contrast .hljs-name,
+body .hljs-tag,
+body.vscode-light .hljs-tag,
+body.vscode-dark .hljs-tag,
+body.vscode-high-contrast .hljs-tag {
+	color: #00f;
+}
+
+body .hljs-built_in,
+body.vscode-light .hljs-built_in,
+body.vscode-dark .hljs-built_in,
+body.vscode-high-contrast .hljs-built_in,
+body .hljs-builtin-name,
+body.vscode-light .hljs-builtin-name,
+body.vscode-dark .hljs-builtin-name,
+body.vscode-high-contrast .hljs-builtin-name {
+	color: #007acc;
+}
+
+body .hljs-string,
+body.vscode-light .hljs-string,
+body.vscode-dark .hljs-string,
+body.vscode-high-contrast .hljs-string,
+body .hljs-section,
+body.vscode-light .hljs-section,
+body.vscode-dark .hljs-section,
+body.vscode-high-contrast .hljs-section,
+body .hljs-attribute,
+body.vscode-light .hljs-attribute,
+body.vscode-dark .hljs-attribute,
+body.vscode-high-contrast .hljs-attribute,
+body .hljs-literal,
+body.vscode-light .hljs-literal,
+body.vscode-dark .hljs-literal,
+body.vscode-high-contrast .hljs-literal,
+body .hljs-template-tag,
+body.vscode-light .hljs-template-tag,
+body.vscode-dark .hljs-template-tag,
+body.vscode-high-contrast .hljs-template-tag,
+body .hljs-template-variable,
+body.vscode-light .hljs-template-variable,
+body.vscode-dark .hljs-template-variable,
+body.vscode-high-contrast .hljs-template-variable,
+body .hljs-type,
+body.vscode-light .hljs-type,
+body.vscode-dark .hljs-type,
+body.vscode-high-contrast .hljs-type {
+	color: #a31515;
+}
+
+body .hljs-subst,
+body.vscode-light .hljs-subst,
+body.vscode-dark .hljs-subst,
+body.vscode-high-contrast .hljs-subst,
+body .hljs-selector-attr,
+body.vscode-light .hljs-selector-attr,
+body.vscode-dark .hljs-selector-attr,
+body.vscode-high-contrast .hljs-selector-attr,
+body .hljs-selector-pseudo,
+body.vscode-light .hljs-selector-pseudo,
+body.vscode-dark .hljs-selector-pseudo,
+body.vscode-high-contrast .hljs-selector-pseudo,
+body .hljs-meta,
+body.vscode-light .hljs-meta,
+body.vscode-dark .hljs-meta,
+body.vscode-high-contrast .hljs-meta,
+body .hljs-meta-keyword,
+body.vscode-light .hljs-meta-keyword,
+body.vscode-dark .hljs-meta-keyword,
+body.vscode-high-contrast .hljs-meta-keyword {
+	color: #2b91af;
+}
+
+body .hljs-title,
+body.vscode-light .hljs-title,
+body.vscode-dark .hljs-title,
+body.vscode-high-contrast .hljs-title,
+body .hljs-doctag,
+body.vscode-light .hljs-doctag,
+body.vscode-dark .hljs-doctag,
+body.vscode-high-contrast .hljs-doctag {
+	color: #808080;
+}
+
+body .hljs-attr,
+body.vscode-light .hljs-attr,
+body.vscode-dark .hljs-attr,
+body.vscode-high-contrast .hljs-attr {
+	color: #f00;
+}
+
+body .hljs-symbol,
+body.vscode-light .hljs-symbol,
+body.vscode-dark .hljs-symbol,
+body.vscode-high-contrast .hljs-symbol,
+body .hljs-bullet,
+body.vscode-light .hljs-bullet,
+body.vscode-dark .hljs-bullet,
+body.vscode-high-contrast .hljs-bullet,
+body .hljs-link,
+body.vscode-light .hljs-link,
+body.vscode-dark .hljs-link,
+body.vscode-high-contrast .hljs-link {
+	color: #00b0e8;
+}
+
+body .hljs-emphasis,
+body.vscode-light .hljs-emphasis,
+body.vscode-dark .hljs-emphasis,
+body.vscode-high-contrast .hljs-emphasis {
+	font-style: italic;
+}
+
+body .hljs-strong,
+body.vscode-light .hljs-strong,
+body.vscode-dark .hljs-strong,
+body.vscode-high-contrast .hljs-strong {
+	font-weight: bold;
 }
 
 .page {

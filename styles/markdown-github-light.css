@@ -1067,66 +1067,18 @@ body ::-webkit-calendar-picker-indicator {
   filter: invert(50%);
 }
 
-body .markdown-alert {
-  padding: 0.5rem 1rem;
-  margin-bottom: 1rem;
-  color: inherit;
-  border-left: .25em solid #d1d9e0;
-}
-
-body .markdown-alert>:first-child {
-  margin-top: 0;
-}
-
-body .markdown-alert>:last-child {
-  margin-bottom: 0;
-}
-
-body .markdown-alert .markdown-alert-title {
-  display: flex;
-  font-weight: 500;
-  align-items: center;
-  line-height: 1;
-}
-
-body .markdown-alert.markdown-alert-note {
-  border-left-color: #0969da;
-}
-
-body .markdown-alert.markdown-alert-note .markdown-alert-title {
-  color: #0969da;
-}
-
-body .markdown-alert.markdown-alert-important {
-  border-left-color: #8250df;
-}
-
-body .markdown-alert.markdown-alert-important .markdown-alert-title {
-  color: #8250df;
-}
-
-body .markdown-alert.markdown-alert-warning {
-  border-left-color: #9a6700;
-}
-
-body .markdown-alert.markdown-alert-warning .markdown-alert-title {
-  color: #9a6700;
-}
-
-body .markdown-alert.markdown-alert-tip {
-  border-left-color: #1a7f37;
-}
-
-body .markdown-alert.markdown-alert-tip .markdown-alert-title {
-  color: #1a7f37;
-}
-
-body .markdown-alert.markdown-alert-caution {
-  border-left-color: #cf222e;
-}
-
-body .markdown-alert.markdown-alert-caution .markdown-alert-title {
-  color: #d1242f;
+/* GitHub Alert palette overrides for Markdown Alert (structure provided by tbruneel.markdown-alert) */
+body .markdown-alert,
+body.vscode-light .markdown-alert,
+body.vscode-dark .markdown-alert,
+body.vscode-high-contrast .markdown-alert {
+  --color-alert-default-border: #d1d9e0;
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-important: #8250df;
+  --color-warning: #9a6700;
+  --color-caution: #d1242f;
+  --color-caution-border: #cf222e;
 }
 
 body>*:first-child>.heading-element:first-child {
@@ -1152,26 +1104,19 @@ body {
   }
 }
 
-/* GitHub Alert spacing & Octicon alignment */
-body .markdown-alert > p:empty {
-  display: none;
-}
-
-body .markdown-alert .markdown-alert-title .octicon {
-  margin-right: 0.5rem;
-}
-
-
 /* Neutralize VS Code built-in media/markdown.css & media/highlight.css specificity conflicts */
 body.vscode-light h1,
 body.vscode-dark h1,
+body.vscode-high-contrast h1,
 body.vscode-light h2,
-body.vscode-dark h2 {
+body.vscode-dark h2,
+body.vscode-high-contrast h2 {
   border-bottom: 1px solid #d1d9e0b3;
 }
 
 body.vscode-light hr,
-body.vscode-dark hr {
+body.vscode-dark hr,
+body.vscode-high-contrast hr {
   height: 1px;
   background-color: #d1d9e0;
   border: 0;
@@ -1179,8 +1124,10 @@ body.vscode-dark hr {
 
 body.vscode-light table th,
 body.vscode-dark table th,
+body.vscode-high-contrast table th,
 body.vscode-light table td,
 body.vscode-dark table td,
+body.vscode-high-contrast table td,
 body table > tbody > tr + tr > td {
   border: 1px solid #d1d9e0;
 }
@@ -1203,6 +1150,7 @@ body a code {
 body blockquote {
   background: transparent;
   border-radius: 0;
+  overflow-x: auto;
 }
 
 body pre,
@@ -1326,7 +1274,9 @@ body .hljs-subst,
 body.vscode-light .hljs,
 body.vscode-light .hljs-subst,
 body.vscode-dark .hljs,
-body.vscode-dark .hljs-subst {
+body.vscode-dark .hljs-subst,
+body.vscode-high-contrast .hljs,
+body.vscode-high-contrast .hljs-subst {
   color: #1f2328;
 }
 body .hljs-doctag,
@@ -1352,7 +1302,15 @@ body.vscode-dark .hljs-meta-keyword,
 body.vscode-dark .hljs-template-tag,
 body.vscode-dark .hljs-template-variable,
 body.vscode-dark .hljs-type,
-body.vscode-dark .hljs-variable.language_ {
+body.vscode-dark .hljs-variable.language_,
+body.vscode-high-contrast .hljs-doctag,
+body.vscode-high-contrast .hljs-keyword,
+body.vscode-high-contrast .hljs-meta .hljs-keyword,
+body.vscode-high-contrast .hljs-meta-keyword,
+body.vscode-high-contrast .hljs-template-tag,
+body.vscode-high-contrast .hljs-template-variable,
+body.vscode-high-contrast .hljs-type,
+body.vscode-high-contrast .hljs-variable.language_ {
   color: #cf222e;
 }
 body .hljs-title,
@@ -1369,7 +1327,12 @@ body.vscode-dark .hljs-title,
 body.vscode-dark .hljs-title.class_,
 body.vscode-dark .hljs-title.class_.inherited__,
 body.vscode-dark .hljs-title.function_,
-body.vscode-dark .hljs-function {
+body.vscode-dark .hljs-function,
+body.vscode-high-contrast .hljs-title,
+body.vscode-high-contrast .hljs-title.class_,
+body.vscode-high-contrast .hljs-title.class_.inherited__,
+body.vscode-high-contrast .hljs-title.function_,
+body.vscode-high-contrast .hljs-function {
   color: #6639ba;
 }
 body .hljs-attr,
@@ -1401,7 +1364,17 @@ body.vscode-dark .hljs-operator,
 body.vscode-dark .hljs-variable,
 body.vscode-dark .hljs-selector-attr,
 body.vscode-dark .hljs-selector-class,
-body.vscode-dark .hljs-selector-id {
+body.vscode-dark .hljs-selector-id,
+body.vscode-high-contrast .hljs-attr,
+body.vscode-high-contrast .hljs-attribute,
+body.vscode-high-contrast .hljs-literal,
+body.vscode-high-contrast .hljs-meta,
+body.vscode-high-contrast .hljs-number,
+body.vscode-high-contrast .hljs-operator,
+body.vscode-high-contrast .hljs-variable,
+body.vscode-high-contrast .hljs-selector-attr,
+body.vscode-high-contrast .hljs-selector-class,
+body.vscode-high-contrast .hljs-selector-id {
   color: #0550ae;
 }
 body .hljs-regexp,
@@ -1415,7 +1388,11 @@ body.vscode-light .hljs-meta-string,
 body.vscode-dark .hljs-regexp,
 body.vscode-dark .hljs-string,
 body.vscode-dark .hljs-meta .hljs-string,
-body.vscode-dark .hljs-meta-string {
+body.vscode-dark .hljs-meta-string,
+body.vscode-high-contrast .hljs-regexp,
+body.vscode-high-contrast .hljs-string,
+body.vscode-high-contrast .hljs-meta .hljs-string,
+body.vscode-high-contrast .hljs-meta-string {
   color: #0a3069;
 }
 body .hljs-built_in,
@@ -1432,7 +1409,12 @@ body.vscode-dark .hljs-built_in,
 body.vscode-dark .hljs-builtin-name,
 body.vscode-dark .hljs-symbol,
 body.vscode-dark .hljs-params,
-body.vscode-dark .hljs-class {
+body.vscode-dark .hljs-class,
+body.vscode-high-contrast .hljs-built_in,
+body.vscode-high-contrast .hljs-builtin-name,
+body.vscode-high-contrast .hljs-symbol,
+body.vscode-high-contrast .hljs-params,
+body.vscode-high-contrast .hljs-class {
   color: #953800;
 }
 body .hljs-comment,
@@ -1443,7 +1425,10 @@ body.vscode-light .hljs-code,
 body.vscode-light .hljs-formula,
 body.vscode-dark .hljs-comment,
 body.vscode-dark .hljs-code,
-body.vscode-dark .hljs-formula {
+body.vscode-dark .hljs-formula,
+body.vscode-high-contrast .hljs-comment,
+body.vscode-high-contrast .hljs-code,
+body.vscode-high-contrast .hljs-formula {
   color: #59636e;
   font-style: normal;
 }
@@ -1461,30 +1446,39 @@ body.vscode-dark .hljs-name,
 body.vscode-dark .hljs-quote,
 body.vscode-dark .hljs-selector-tag,
 body.vscode-dark .hljs-selector-pseudo,
-body.vscode-dark .hljs-tag {
+body.vscode-dark .hljs-tag,
+body.vscode-high-contrast .hljs-name,
+body.vscode-high-contrast .hljs-quote,
+body.vscode-high-contrast .hljs-selector-tag,
+body.vscode-high-contrast .hljs-selector-pseudo,
+body.vscode-high-contrast .hljs-tag {
   color: #116329;
 }
 body .hljs-section,
 body.vscode-light .hljs-section,
-body.vscode-dark .hljs-section {
+body.vscode-dark .hljs-section,
+body.vscode-high-contrast .hljs-section {
   color: #0550ae;
   font-weight: bold;
 }
 body .hljs-bullet,
 body.vscode-light .hljs-bullet,
-body.vscode-dark .hljs-bullet {
+body.vscode-dark .hljs-bullet,
+body.vscode-high-contrast .hljs-bullet {
   color: #953800;
 }
 body .hljs-Addition,
 body .hljs-addition,
 body.vscode-light .hljs-addition,
-body.vscode-dark .hljs-addition {
+body.vscode-dark .hljs-addition,
+body.vscode-high-contrast .hljs-addition {
   color: #116329;
   background-color: #dafbe1;
 }
 body .hljs-deletion,
 body.vscode-light .hljs-deletion,
-body.vscode-dark .hljs-deletion {
+body.vscode-dark .hljs-deletion,
+body.vscode-high-contrast .hljs-deletion {
   color: #82071e;
   background-color: #ffebe9;
 }
@@ -1493,7 +1487,8 @@ body.vscode-dark .hljs-deletion {
 body code.language-json .hljs-comment,
 body pre.hljs:has(> code > div > .hljs-punctuation:first-child) code:not(.language-jsonc):not(.language-json5) .hljs-comment,
 body.vscode-light code.language-json .hljs-comment,
-body.vscode-dark code.language-json .hljs-comment {
+body.vscode-dark code.language-json .hljs-comment,
+body.vscode-high-contrast code.language-json .hljs-comment {
   color: #d1242f;
   background-color: #ffebe9;
 }
