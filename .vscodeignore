@@ -1,4 +1,6 @@
 package-lock.json
 .gitignore
 *.vsix
-README.md.html
+**/*.htmd
+docs/**
+.agents/**
